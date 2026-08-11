@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.json",
+  "name": "io.github.hlobo-dev/tengu-firm",
+  "description": "Hosted MCP server for Tengu FIRM: real-time & historical market data, SEC filings, insider/13F/congressional trades, fundamentals, quant signals, cited verdicts, private markets, and macro — 336 agent tools behind one API key.",
+  "repository": {
+    "url": "https://github.com/Hlobo-dev/tengu-mcp",
+    "source": "github"
+  },
+  "version": "2.114",
+  "websiteUrl": "https://tengu.co/api",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://firm.tengu.co/mcp",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "description": "Your Tengu API key from https://tengu.co/api",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
