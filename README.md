@@ -90,7 +90,12 @@ In most apps that support remote MCP servers with OAuth, you add `https://mcp.we
 ```json
 {
   "inputs": [
-    { "type": "promptString", "id": "wealthnow-key", "description": "Wealthnow API key", "password": true }
+    {
+      "type": "promptString",
+      "id": "wealthnow-key",
+      "description": "Wealthnow API key",
+      "password": true
+    }
   ],
   "servers": {
     "wealthnow": {
