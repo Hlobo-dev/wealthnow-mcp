@@ -75,7 +75,16 @@ The first time you use it, Cursor asks you to sign in to Wealthnow.
 
 ### Other MCP apps
 
-Any app that supports remote MCP servers with OAuth works the same way. Add `https://mcp.wealthnow.io/mcp` as a remote (Streamable HTTP) server, and the app registers itself and runs the sign-in.
+In most apps that support remote MCP servers with OAuth, you add `https://mcp.wealthnow.io/mcp` as a remote (Streamable HTTP) server, and the app registers itself and runs the sign-in. We have checked this with:
+- Grok, Perplexity and Devin
+- Cline, Kiro, Amp and LM Studio
+- Warp's terminal, Postman, Slack and Figma
+
+**Not working yet.** Sign-in from these apps is still being enabled on our side. Until then, connect them with an API key:
+- **VS Code, Zed, GitHub Copilot CLI and Goose:** they identify themselves with a client metadata document.
+- **Gemini CLI 0.60 and later:** it requires an `iss` parameter on the sign-in response.
+
+Zed skips sign-in when you set the `Authorization: Bearer YOUR_TENGU_API_KEY` header; the server accepts the key there as well as in `X-API-Key`.
 
 ### With an API key
 
