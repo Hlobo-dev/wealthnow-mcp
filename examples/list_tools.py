@@ -40,11 +40,11 @@ def main():
     key = os.environ.get("TENGU_API_KEY")
     if not key:
         print("\nSet TENGU_API_KEY (free at https://app.wealthnow.io/auth/sign-up) "
-              "to list and call the tools your plan includes.")
+              "to list tools and call the ones your plan includes.")
         return
 
     tools = rpc("tools/list", {}, key)["result"]["tools"]
-    print(f"\nYour plan can call {len(tools)} tools. First 10:")
+    print(f"\nThe default list shows {len(tools)} tools (add ?catalog=full to the URL for all). First 10:")
     for t in tools[:10]:
         print(f"  - {t['name']}: {t.get('description', '')[:70]}")
 

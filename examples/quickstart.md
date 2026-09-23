@@ -12,7 +12,7 @@ export TENGU_API_KEY=...
 curl -s https://mcp.wealthnow.io/.well-known/mcp/server-card.json | jq '.tools | length'
 ```
 
-## 2. List the tools your plan can call
+## 2. List the tools (the default list; add `?catalog=full` to the URL for every tool)
 
 ```bash
 curl -s -X POST https://mcp.wealthnow.io/mcp \

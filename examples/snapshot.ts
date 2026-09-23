@@ -27,7 +27,7 @@ if (!key) {
   console.log("Set TENGU_API_KEY (free at https://app.wealthnow.io/auth/sign-up) to call a tool.");
 } else {
   const list = await rpc("tools/list", {}, key);
-  console.log(`Your plan can call ${list.result?.tools?.length ?? 0} Wealthnow tools.`);
+  console.log(`The default list shows ${list.result?.tools?.length ?? 0} Wealthnow tools (add ?catalog=full to the URL for all).`);
   const out = await rpc(
     "tools/call",
     { name: "fundamentals_price_snapshot", arguments: { ticker: "AAPL" } },

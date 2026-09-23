@@ -13,9 +13,10 @@ Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) 
 | **Registry** | [`io.wealthnow/mcp`](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.wealthnow/mcp) in the official MCP Registry |
 | **Free plan** | 1,000 credits a month, no card needed. Connecting from an AI app starts it for you. |
 
-Every tool is read-only. Which tools you see depends on your plan:
-- **Free:** market data, fundamentals and SEC filings.
-- **Paid plans:** the full catalogue, which is listed in the [server card](https://mcp.wealthnow.io/.well-known/mcp/server-card.json).
+Every tool is read-only.
+- **Default list:** your agent first sees `account_status` and up to 12 starter tools.
+- **Full catalogue:** connect to `https://mcp.wealthnow.io/mcp?catalog=full` to list every public tool. The same list is in the [server card](https://mcp.wealthnow.io/.well-known/mcp/server-card.json).
+- **Plans:** your agent can call any tool your plan includes, whether or not it is listed. The Free plan covers market data, fundamentals and SEC filings.
 
 *Data and structured signals, not investment advice.*
 
@@ -84,7 +85,41 @@ In most apps that support remote MCP servers with OAuth, you add `https://mcp.we
 - **VS Code, Zed, GitHub Copilot CLI and Goose:** they identify themselves with a client metadata document.
 - **Gemini CLI 0.60 and later:** it requires an `iss` parameter on the sign-in response.
 
-Zed skips sign-in when you set the `Authorization: Bearer YOUR_TENGU_API_KEY` header; the server accepts the key there as well as in `X-API-Key`.
+**VS Code** (`.vscode/mcp.json`): VS Code prompts for the key once and stores it securely.
+
+```json
+{
+  "inputs": [
+    { "type": "promptString", "id": "wealthnow-key", "description": "Wealthnow API key", "password": true }
+  ],
+  "servers": {
+    "wealthnow": {
+      "type": "http",
+      "url": "https://mcp.wealthnow.io/mcp",
+      "headers": { "X-API-Key": "${input:wealthnow-key}" }
+    }
+  }
+}
+```
+
+**Zed** (`settings.json`): Zed skips sign-in when an `Authorization` header is set, and the server accepts the key as a bearer token.
+
+```json
+{
+  "context_servers": {
+    "wealthnow": {
+      "url": "https://mcp.wealthnow.io/mcp",
+      "headers": { "Authorization": "Bearer YOUR_TENGU_API_KEY" }
+    }
+  }
+}
+```
+
+**Gemini CLI:**
+
+```bash
+gemini mcp add --transport http wealthnow https://mcp.wealthnow.io/mcp -H "X-API-Key: YOUR_TENGU_API_KEY"
+```
 
 ### With an API key
 
