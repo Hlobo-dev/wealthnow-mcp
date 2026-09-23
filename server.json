@@ -3,18 +3,36 @@
   "name": "io.wealthnow/mcp",
   "title": "Wealthnow",
   "description": "Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets.",
-  "version": "2.137.0",
+  "version": "2.137.1",
   "websiteUrl": "https://app.wealthnow.io/docs/mcp-and-sdks",
+  "repository": {
+    "url": "https://github.com/Hlobo-dev/wealthnow-mcp",
+    "source": "github"
+  },
   "icons": [
     {
       "src": "https://app.wealthnow.io/favicon/favicon-light.svg",
       "mimeType": "image/svg+xml",
-      "theme": "light"
+      "theme": "light",
+      "sizes": [
+        "any"
+      ]
     },
     {
       "src": "https://app.wealthnow.io/favicon/favicon-dark.svg",
       "mimeType": "image/svg+xml",
-      "theme": "dark"
+      "theme": "dark",
+      "sizes": [
+        "any"
+      ]
+    },
+    {
+      "src": "https://app.wealthnow.io/tengu-logo-light.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ],
+      "theme": "light"
     }
   ],
   "remotes": [
@@ -23,10 +41,11 @@
       "url": "https://mcp.wealthnow.io/mcp",
       "headers": [
         {
+          "name": "X-API-Key",
           "description": "Optional. Your Wealthnow API key (tengu_...). Clients that support MCP OAuth sign in instead and need no key.",
-          "format": "string",
+          "isRequired": false,
           "isSecret": true,
-          "name": "X-API-Key"
+          "format": "string"
         }
       ]
     }
