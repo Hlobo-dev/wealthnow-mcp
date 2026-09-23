@@ -1,110 +1,151 @@
-# Tengu FIRM — MCP Server
+# Wealthnow MCP server
 
-**One API key. 336 market & quant data tools. Built for AI agents.**
+**Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets for AI agents.**
 
-Tengu FIRM is a **hosted [Model Context Protocol](https://modelcontextprotocol.io) server**
-that exposes real-time and historical market data, SEC filings, insider/institutional/
-congressional trades, fundamentals, quant signals, cited verdicts, private markets, and
-macro data — as native agent tools over **MCP Streamable HTTP**.
+Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) server. Add one URL to your AI app, sign in to Wealthnow, and your agent can call financial data tools directly.
 
-- **Endpoint:** `https://firm.tengu.co/mcp`
-- **Transport:** MCP Streamable HTTP (JSON-RPC 2.0) — `initialize`, `tools/list`, `tools/call`
-- **Auth:** send your key as the `X-API-Key` header (or `Authorization: Bearer <key>`)
-- **Server:** `tengu-firm` · manifest `2.114`
-- **Get a key (free, no card):** https://tengu.co/api
+| | |
+|---|---|
+| **Endpoint** | `https://mcp.wealthnow.io/mcp` |
+| **Transport** | Streamable HTTP |
+| **Sign-in** | OAuth 2.1. Your AI app opens Wealthnow's sign-in page and returns you connected, with no key to copy. |
+| **API key** | Optional, for scripts and apps without OAuth: send it in the `X-API-Key` header. |
+| **Registry** | [`io.wealthnow/mcp`](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.wealthnow/mcp) in the official MCP Registry |
+| **Free plan** | 1,000 credits a month, no card needed. Connecting from an AI app starts it for you. |
 
-Every `tools/call` proxies to a `firm.tengu.co` REST endpoint, so tier gating and credit
-metering apply exactly as on REST. *Data and structured signals — not investment advice.*
+Every tool is read-only. Which tools you see depends on your plan:
+- **Free:** market data, fundamentals and SEC filings.
+- **Paid plans:** the full catalogue, which is listed in the [server card](https://mcp.wealthnow.io/.well-known/mcp/server-card.json).
+
+*Data and structured signals, not investment advice.*
 
 ---
 
 ## Connect
 
-### claude.ai (recommended for a hosted server)
-Settings → **Connectors** → **Add custom connector** → URL `https://firm.tengu.co/mcp`,
-and set the **`X-API-Key`** header to your key.
+### Claude (claude.ai, Claude Desktop, Claude mobile)
 
-### Claude Desktop / Cursor (via `mcp-remote`)
-Desktop clients launch MCP servers as local processes, so bridge to the remote endpoint
-with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote):
+**[Add Wealthnow to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Wealthnow&connectorUrl=https%3A%2F%2Fmcp.wealthnow.io%2Fmcp)**
+
+To add it by hand instead:
+1. In Claude, open **Settings → Connectors → Add custom connector**.
+2. Enter the name `Wealthnow` and the URL `https://mcp.wealthnow.io/mcp`.
+3. Click **Connect**, sign in to Wealthnow, then click **Connect** on the Wealthnow page.
+
+A connector you add on the web also appears in Claude Desktop and on mobile.
+
+### Claude Code
+
+```bash
+claude mcp add --transport http wealthnow https://mcp.wealthnow.io/mcp
+```
+
+Then run `/mcp` inside Claude Code, choose **wealthnow**, and sign in.
+
+### ChatGPT
+
+1. Open ChatGPT on the web and go to **Settings → Apps**. Some accounts label this **Apps & Connectors** or **Connectors**.
+2. Open **Advanced settings** and turn on **Developer mode**.
+3. Back on **Apps**, click **Create**.
+4. Enter the URL `https://mcp.wealthnow.io/mcp` and choose **OAuth**.
+5. Sign in to Wealthnow when ChatGPT sends you there.
+
+### Cursor
+
+**[Add Wealthnow to Cursor](https://cursor.com/en/install-mcp?name=wealthnow&config=eyJ1cmwiOiJodHRwczovL21jcC53ZWFsdGhub3cuaW8vbWNwIn0%3D)**
+
+Or add this to `~/.cursor/mcp.json`:
 
 ```json
 {
   "mcpServers": {
-    "tengu-firm": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://firm.tengu.co/mcp",
-               "--header", "X-API-Key:YOUR_TENGU_API_KEY"]
-    }
+    "wealthnow": { "url": "https://mcp.wealthnow.io/mcp" }
   }
 }
 ```
 
-### Any remote-capable MCP client
+The first time you use it, Cursor asks you to sign in to Wealthnow.
+
+### Other MCP apps
+
+Any app that supports remote MCP servers with OAuth works the same way. Add `https://mcp.wealthnow.io/mcp` as a remote (Streamable HTTP) server, and the app registers itself and runs the sign-in.
+
+### With an API key
+
+Get a key from the [Wealthnow dashboard](https://app.wealthnow.io/auth/sign-up) and send it in the `X-API-Key` header. This works in any client that lets you set headers:
+
 ```json
 {
   "mcpServers": {
-    "tengu-firm": {
-      "url": "https://firm.tengu.co/mcp",
+    "wealthnow": {
+      "url": "https://mcp.wealthnow.io/mcp",
       "headers": { "X-API-Key": "YOUR_TENGU_API_KEY" }
     }
   }
 }
 ```
 
-### Verify it's reachable
-```bash
-curl -s -X POST https://firm.tengu.co/mcp \
-  -H 'Content-Type: application/json' \
-  -H 'X-API-Key: YOUR_TENGU_API_KEY' \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | jq '.result.tools | length'
+If your app only runs local servers, bridge to the remote one with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote):
+
+```json
+{
+  "mcpServers": {
+    "wealthnow": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote@0.14.2", "https://mcp.wealthnow.io/mcp",
+               "--header", "X-API-Key:${TENGU_API_KEY}"],
+      "env": { "TENGU_API_KEY": "YOUR_TENGU_API_KEY" }
+    }
+  }
+}
 ```
 
 ---
 
-## Tool catalogue
+## Try it
 
-Live discovery (no auth required):
-- Capabilities: `https://firm.tengu.co/api/capabilities`
-- OpenAPI 3.1: `https://firm.tengu.co/api/openapi.json`
+Once connected, ask your agent:
 
-| Group | Prefix | Count | Surface |
-|------|--------|------:|---------|
-| legacy | `tengu_*` | 10 | EC2-compat core data |
-| v2 | `tengu_v2_*` | 15 | FIRM upgrades |
-| v3 | `tengu_v3_*` | 301 | Expert: agents, decision, execution, strategies, memory, lab |
-| copilot | `tengu_copilot_*` | 20 | Chat-copilot aggregations |
-| ml | `tengu_ml_*` | 5 | Direct ML model surface |
+> Using Wealthnow, what's the latest quote for AAPL?
 
-**Example tools**
-- `tengu_snapshot` — live price snapshot for a ticker
-- `tengu_crypto` — real-time crypto quote (439 pairs)
-- `tengu_insider_clusters` — companies where multiple insiders bought around the same time
-- `tengu_v3_fundamentals_full` — full fundamentals (income, balance sheet, cash flow, 100+ metrics)
+Or call it directly with an API key:
 
-**Data surfaces:** real-time + 30yr OHLCV (stocks & crypto) · 100+ fundamentals · SEC
-filings (10-K/10-Q/8-K) · insider trades (Form 4) · institutional holdings (13F) ·
-congressional trades (STOCK Act) · news sentiment (57 sources) · quant factor scores ·
-cited verdicts · private markets (10.5M companies / 3M deals / 646K investors) · macro
-(CPI, rates, employment).
+```bash
+curl -s -X POST https://mcp.wealthnow.io/mcp \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json, text/event-stream' \
+  -H "X-API-Key: $TENGU_API_KEY" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call",
+       "params":{"name":"fundamentals_price_snapshot","arguments":{"ticker":"AAPL"}}}'
+```
 
----
+More in [`examples/`](./examples): a [quickstart](./examples/quickstart.md), [Python](./examples/list_tools.py) and [TypeScript](./examples/snapshot.ts).
 
-## Pricing
+## What it covers
 
-| Tier | Price | Credits / mo | Rate limit |
-|------|------:|-------------:|-----------:|
-| Free | $0 | 1,000 | 30 req/min |
-| Starter | $99 | 250,000 | 120 req/min |
-| Pro | $499 | 2,000,000 | 600 req/min |
-| Expert | $999 | 5,000,000 | 1,200 req/min |
+- Real-time and historical prices for stocks and crypto
+- Fundamentals: income statement, balance sheet, cash flow, metrics, screener and peers
+- SEC filings: 10-K, 10-Q, 8-K and structured extracts
+- Insider trades (Form 4), institutional holdings (13F) and congressional trades
+- News and sentiment, macro, rates, FX and commodities
+- Options flow, alternative data and private markets (companies, deals, investors)
 
-Start free (no card): **https://tengu.co/api**
+## Discovery
+
+- MCP server card: https://mcp.wealthnow.io/.well-known/mcp/server-card.json
+- OAuth protected resource metadata: https://mcp.wealthnow.io/.well-known/oauth-protected-resource
+- REST API (OpenAPI 3.1): https://firm.wealthnow.io/api/openapi.json
 
 ## Links
-- Homepage: https://tengu.co/api
-- Capabilities: https://firm.tengu.co/api/capabilities
-- OpenAPI: https://firm.tengu.co/api/openapi.json
+
+- Product: https://wealthnow.io/api
+- Docs: https://app.wealthnow.io/docs/mcp-and-sdks
+- Sign up: https://app.wealthnow.io/auth/sign-up
+- Pricing: https://wealthnow.io/pricing
+- Privacy: https://wealthnow.io/privacy
+- Terms: https://wealthnow.io/terms
+- Support: hello@wealthnow.io
 
 ## License
-MIT — see [LICENSE](./LICENSE). "Tengu" and "FIRM" are marks of Tengu, Inc.
+
+The examples and listing files in this repository are MIT licensed; see [LICENSE](./LICENSE). The Wealthnow service is covered by its [terms](https://wealthnow.io/terms). "Wealthnow" is a mark of Tengu LLC.
