@@ -1,0 +1,19 @@
+{
+  "name": "wealthnow",
+  "owner": {
+    "name": "Wealthnow",
+    "email": "hello@wealthnow.io"
+  },
+  "metadata": {
+    "description": "The Wealthnow MCP server for Claude Code",
+    "version": "2.137.1"
+  },
+  "plugins": [
+    {
+      "name": "wealthnow",
+      "source": "./plugins/wealthnow",
+      "description": "Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets. Sign in with Wealthnow over OAuth; every tool is read-only.",
+      "category": "finance"
+    }
+  ]
+}

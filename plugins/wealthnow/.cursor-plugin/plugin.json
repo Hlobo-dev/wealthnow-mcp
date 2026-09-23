@@ -1,0 +1,15 @@
+{
+  "name": "wealthnow",
+  "displayName": "Wealthnow",
+  "version": "2.137.1",
+  "description": "Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets. Sign in with Wealthnow over OAuth; every tool is read-only.",
+  "author": {
+    "name": "Wealthnow",
+    "email": "hello@wealthnow.io"
+  },
+  "homepage": "https://wealthnow.io/api",
+  "repository": "https://github.com/Hlobo-dev/wealthnow-mcp",
+  "license": "MIT",
+  "keywords": ["finance", "market-data", "fundamentals", "sec-filings", "mcp"],
+  "logo": "assets/logo.svg"
+}

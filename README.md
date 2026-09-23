@@ -42,6 +42,13 @@ claude mcp add --transport http wealthnow https://mcp.wealthnow.io/mcp
 
 Then run `/mcp` inside Claude Code, choose **wealthnow**, and sign in.
 
+Or install it as a plugin from this repository:
+
+```bash
+/plugin marketplace add Hlobo-dev/wealthnow-mcp
+/plugin install wealthnow@wealthnow
+```
+
 ### ChatGPT
 
 1. Open ChatGPT on the web and go to **Settings → Apps**. Some accounts label this **Apps & Connectors** or **Connectors**.

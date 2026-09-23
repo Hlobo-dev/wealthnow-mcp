@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "wealthnow": {
+      "url": "https://mcp.wealthnow.io/mcp"
+    }
+  }
+}
