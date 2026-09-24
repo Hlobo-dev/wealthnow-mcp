@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Browse the Wealthnow MCP tool catalogue (public, no key needed), then list
-and call tools with TENGU_API_KEY if it is set. Stdlib only.
+and call tools with WEALTHNOW_API_KEY if it is set. Stdlib only.
 
     python3 list_tools.py
 """
@@ -37,9 +37,9 @@ def main():
     card = get_json(SERVER_CARD)
     print(f"Wealthnow catalogue: {len(card['tools'])} tools across all plans.")
 
-    key = os.environ.get("TENGU_API_KEY")
+    key = os.environ.get("WEALTHNOW_API_KEY")
     if not key:
-        print("\nSet TENGU_API_KEY (free at https://app.wealthnow.io/auth/sign-up) "
+        print("\nSet WEALTHNOW_API_KEY (free at https://app.wealthnow.io/auth/sign-up) "
               "to list tools and call the ones your plan includes.")
         return
 

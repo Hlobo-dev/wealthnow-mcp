@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "The Wealthnow MCP server for Claude Code",
-    "version": "2.137.1"
+    "version": "2.138.0"
   },
   "plugins": [
     {

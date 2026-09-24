@@ -76,14 +76,15 @@ The first time you use it, Cursor asks you to sign in to Wealthnow.
 
 ### Other MCP apps
 
-In most apps that support remote MCP servers with OAuth, you add `https://mcp.wealthnow.io/mcp` as a remote (Streamable HTTP) server, and the app registers itself and runs the sign-in. We have checked this with:
-- Grok, Perplexity and Devin
-- Cline, Kiro, Amp and LM Studio
-- Warp's terminal, Postman, Slack and Figma
+In most apps that support remote MCP servers with OAuth, you add `https://mcp.wealthnow.io/mcp` as a remote (Streamable HTTP) server, and the app registers itself and runs the sign-in.
+- **Full sign-in tested end to end** (sign in, back in the app, tools listed): Claude, ChatGPT, Grok, Cursor and Perplexity.
+- **Checked to reach the Wealthnow sign-in page:** VS Code, Zed, GitHub Copilot CLI, Warp, Devin, Cline, Kiro, Amp, LM Studio, Postman, Slack and Figma. The steps after sign-in are the same as for the apps above.
 
 **Not working yet.** Sign-in from these apps is still being enabled on our side. Until then, connect them with an API key:
-- **VS Code, Zed, GitHub Copilot CLI and Goose:** they identify themselves with a client metadata document.
+- **Goose:** it identifies itself with a client metadata document we do not trust yet.
 - **Gemini CLI 0.60 and later:** it requires an `iss` parameter on the sign-in response.
+
+Keep the key in your user-level settings, never in a project file that may be committed to a repository.
 
 **VS Code** (`.vscode/mcp.json`): VS Code prompts for the key once and stores it securely.
 
@@ -107,23 +108,39 @@ In most apps that support remote MCP servers with OAuth, you add `https://mcp.we
 }
 ```
 
-**Zed** (`settings.json`): Zed skips sign-in when an `Authorization` header is set, and the server accepts the key as a bearer token.
+**Gemini CLI** (`-s user` saves it in `~/.gemini/settings.json`; without it the key is written into the current project's `.gemini/settings.json`):
+
+```bash
+gemini mcp add -s user --transport http wealthnow https://mcp.wealthnow.io/mcp -H "X-API-Key: YOUR_WEALTHNOW_API_KEY"
+```
+
+**Goose** (`~/.config/goose/config.yaml`):
+
+```yaml
+extensions:
+  wealthnow:
+    type: streamable_http
+    name: wealthnow
+    enabled: true
+    uri: https://mcp.wealthnow.io/mcp
+    headers:
+      X-API-Key: YOUR_WEALTHNOW_API_KEY
+    timeout: 300
+```
+
+VS Code and Zed sign in on their own; a key also works, for example on a machine without a browser.
+
+**Zed** (your user settings, `~/.config/zed/settings.json`): Zed skips sign-in when an `Authorization` header is set, and the server accepts the key as a bearer token.
 
 ```json
 {
   "context_servers": {
     "wealthnow": {
       "url": "https://mcp.wealthnow.io/mcp",
-      "headers": { "Authorization": "Bearer YOUR_TENGU_API_KEY" }
+      "headers": { "Authorization": "Bearer YOUR_WEALTHNOW_API_KEY" }
     }
   }
 }
-```
-
-**Gemini CLI:**
-
-```bash
-gemini mcp add --transport http wealthnow https://mcp.wealthnow.io/mcp -H "X-API-Key: YOUR_TENGU_API_KEY"
 ```
 
 ### With an API key
@@ -135,7 +152,7 @@ Get a key from the [Wealthnow dashboard](https://app.wealthnow.io/auth/sign-up) 
   "mcpServers": {
     "wealthnow": {
       "url": "https://mcp.wealthnow.io/mcp",
-      "headers": { "X-API-Key": "YOUR_TENGU_API_KEY" }
+      "headers": { "X-API-Key": "YOUR_WEALTHNOW_API_KEY" }
     }
   }
 }
@@ -149,8 +166,8 @@ If your app only runs local servers, bridge to the remote one with [`mcp-remote`
     "wealthnow": {
       "command": "npx",
       "args": ["-y", "mcp-remote@0.14.2", "https://mcp.wealthnow.io/mcp",
-               "--header", "X-API-Key:${TENGU_API_KEY}"],
-      "env": { "TENGU_API_KEY": "YOUR_TENGU_API_KEY" }
+               "--header", "X-API-Key:${WEALTHNOW_API_KEY}"],
+      "env": { "WEALTHNOW_API_KEY": "YOUR_WEALTHNOW_API_KEY" }
     }
   }
 }
@@ -170,7 +187,7 @@ Or call it directly with an API key:
 curl -s -X POST https://mcp.wealthnow.io/mcp \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json, text/event-stream' \
-  -H "X-API-Key: $TENGU_API_KEY" \
+  -H "X-API-Key: $WEALTHNOW_API_KEY" \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call",
        "params":{"name":"fundamentals_price_snapshot","arguments":{"ticker":"AAPL"}}}'
 ```
@@ -197,7 +214,7 @@ More in [`examples/`](./examples): a [quickstart](./examples/quickstart.md), [Py
 - Product: https://wealthnow.io/api
 - Docs: https://app.wealthnow.io/docs/mcp-and-sdks
 - Sign up: https://app.wealthnow.io/auth/sign-up
-- Pricing: https://wealthnow.io/pricing
+- Pricing: https://app.wealthnow.io/docs/pricing-and-credits
 - Privacy: https://wealthnow.io/privacy
 - Terms: https://wealthnow.io/terms
 - Support: hello@wealthnow.io

@@ -1,6 +1,6 @@
 /**
  * Call a Wealthnow tool over MCP (JSON-RPC tools/call).
- * Run: TENGU_API_KEY=... bun run snapshot.ts  (or: npx tsx snapshot.ts)
+ * Run: WEALTHNOW_API_KEY=... bun run snapshot.ts  (or: npx tsx snapshot.ts)
  */
 const MCP = "https://mcp.wealthnow.io/mcp";
 
@@ -22,16 +22,25 @@ async function rpc(method: string, params: unknown, apiKey: string): Promise<Rpc
   return JSON.parse(event ? event.slice("data: ".length) : raw);
 }
 
-const key = process.env.TENGU_API_KEY;
-if (!key) {
-  console.log("Set TENGU_API_KEY (free at https://app.wealthnow.io/auth/sign-up) to call a tool.");
-} else {
-  const list = await rpc("tools/list", {}, key);
-  console.log(`The default list shows ${list.result?.tools?.length ?? 0} Wealthnow tools (add ?catalog=full to the URL for all).`);
-  const out = await rpc(
-    "tools/call",
-    { name: "fundamentals_price_snapshot", arguments: { ticker: "AAPL" } },
-    key,
-  );
-  console.log("fundamentals_price_snapshot(AAPL) ->", JSON.stringify(out.result ?? out).slice(0, 600));
+// Wrapped in main(): with no package.json, tsx compiles this file as CommonJS,
+// which has no top-level await.
+async function main(): Promise<void> {
+  const key = process.env.WEALTHNOW_API_KEY;
+  if (!key) {
+    console.log("Set WEALTHNOW_API_KEY (free at https://app.wealthnow.io/auth/sign-up) to call a tool.");
+  } else {
+    const list = await rpc("tools/list", {}, key);
+    console.log(`The default list shows ${list.result?.tools?.length ?? 0} Wealthnow tools (add ?catalog=full to the URL for all).`);
+    const out = await rpc(
+      "tools/call",
+      { name: "fundamentals_price_snapshot", arguments: { ticker: "AAPL" } },
+      key,
+    );
+    console.log("fundamentals_price_snapshot(AAPL) ->", JSON.stringify(out.result ?? out).slice(0, 600));
+  }
 }
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

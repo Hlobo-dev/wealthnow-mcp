@@ -1,6 +1,6 @@
 {
   "name": "wealthnow",
-  "version": "2.137.1",
+  "version": "2.138.0",
   "description": "Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets. Sign in with Wealthnow over OAuth; every tool is read-only.",
   "author": {
     "name": "Wealthnow",
