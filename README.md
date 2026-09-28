@@ -87,10 +87,10 @@ codex mcp login wealthnow
 
 In most apps that support remote MCP servers with OAuth, you add `https://mcp.wealthnow.io/mcp` as a remote (Streamable HTTP) server, and the app registers itself and runs the sign-in.
 - **Full sign-in tested end to end** (sign in, back in the app, tools listed): Claude, ChatGPT, Grok, Cursor and Perplexity.
-- **Checked to reach the Wealthnow sign-in page:** VS Code, Zed, GitHub Copilot CLI, Codex, Goose, the Code tab in Claude Desktop, Devin, Cline, Kiro, Amp, LM Studio, Postman, Slack and Figma. The steps after sign-in are the same as for the apps above.
+- **Checked to reach the Wealthnow sign-in page (2026-09-28, 70 of 72 client variants):** VS Code, Zed, GitHub Copilot CLI and the Copilot desktop app, Codex, Goose, Devin Desktop (formerly Windsurf), Warp, Continue, Cline, Raycast, the Code tab in Claude Desktop, Devin, Cline, Kiro, Amp, LM Studio, Postman, Slack and Figma. The steps after sign-in are the same as for the apps above.
 - **Gemini CLI 0.60 and later** requires an `iss` parameter on the sign-in response; Wealthnow sends it. We have not yet run a Gemini CLI sign-in end to end.
 - **OpenCode** cannot finish sign-in yet because of a bug in OpenCode ([opencode#50510](https://github.com/anomalyco/opencode/issues/50510)). Connect it with an API key (below).
-- **Devin Desktop** (formerly Windsurf) reaches the sign-in page but then refuses the sign-in: its client drops the `iss` parameter and reports it missing ([devin-cli#5](https://github.com/CognitionAI/devin-cli/issues/5)). Warp's current MCP client code has the same flaw. Connect both with an API key (below).
+- **Devin Desktop** (formerly Windsurf) and **Warp** refused the sign-in until 2026-09-28: their clients drop the `iss` parameter and report it missing ([devin-cli#5](https://github.com/CognitionAI/devin-cli/issues/5)). The server no longer asks clients to require it (it still sends it), so their sign-in is no longer refused for that reason. A key (below) also works.
 
 **If sign-in fails in your app**, connect it with an API key instead:
 
@@ -152,6 +152,8 @@ extensions:
   }
 }
 ```
+
+Devin Desktop and Warp sign in on their own; a key also works, for example on a machine without a browser.
 
 **Devin Desktop** (formerly Windsurf; `~/.config/devin/mcp_config.json` on macOS and Linux, `%APPDATA%\devin\mcp_config.json` on Windows; the key comes from an environment variable):
 
