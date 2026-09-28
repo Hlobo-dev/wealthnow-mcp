@@ -3,7 +3,7 @@
   "name": "io.wealthnow/mcp",
   "title": "Wealthnow",
   "description": "Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets.",
-  "version": "2.138.0",
+  "version": "2.138.1",
   "websiteUrl": "https://app.wealthnow.io/docs/mcp-and-sdks",
   "repository": {
     "url": "https://github.com/Hlobo-dev/wealthnow-mcp",
@@ -42,7 +42,7 @@
       "headers": [
         {
           "name": "X-API-Key",
-          "description": "Your Wealthnow API key (tengu_...). Apps that sign in with MCP OAuth (Claude, ChatGPT, Cursor, VS Code, Zed, GitHub Copilot CLI and others) need no key. Goose and Gemini CLI 0.60+ need it until their sign-in is enabled.",
+          "description": "Your Wealthnow API key (tengu_...). Apps that sign in with MCP OAuth (Claude, ChatGPT, Codex, Cursor, VS Code, Zed, GitHub Copilot CLI, Goose, Gemini CLI and others) need no key. Use a key for scripts, or for an app whose sign-in does not finish yet (the docs list them).",
           "isRequired": false,
           "isSecret": true,
           "format": "string"

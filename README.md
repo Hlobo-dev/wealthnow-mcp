@@ -74,12 +74,23 @@ Or add this to `~/.cursor/mcp.json`:
 
 The first time you use it, Cursor asks you to sign in to Wealthnow.
 
+### Codex
+
+```bash
+codex mcp add wealthnow --url https://mcp.wealthnow.io/mcp
+codex mcp login wealthnow
+```
+
+`codex mcp login` opens the Wealthnow sign-in in your browser. To use an API key instead, set `bearer_token_env_var = "WEALTHNOW_API_KEY"` under `[mcp_servers.wealthnow]` in `~/.codex/config.toml`.
+
 ### Other MCP apps
 
 In most apps that support remote MCP servers with OAuth, you add `https://mcp.wealthnow.io/mcp` as a remote (Streamable HTTP) server, and the app registers itself and runs the sign-in.
 - **Full sign-in tested end to end** (sign in, back in the app, tools listed): Claude, ChatGPT, Grok, Cursor and Perplexity.
-- **Checked to reach the Wealthnow sign-in page:** VS Code, Zed, GitHub Copilot CLI, Warp, Goose, the Code tab in Claude Desktop, Devin, Cline, Kiro, Amp, LM Studio, Postman, Slack and Figma. The steps after sign-in are the same as for the apps above.
+- **Checked to reach the Wealthnow sign-in page:** VS Code, Zed, GitHub Copilot CLI, Codex, Goose, the Code tab in Claude Desktop, Devin, Cline, Kiro, Amp, LM Studio, Postman, Slack and Figma. The steps after sign-in are the same as for the apps above.
 - **Gemini CLI 0.60 and later** requires an `iss` parameter on the sign-in response; Wealthnow sends it. We have not yet run a Gemini CLI sign-in end to end.
+- **OpenCode** cannot finish sign-in yet because of a bug in OpenCode ([opencode#50510](https://github.com/anomalyco/opencode/issues/50510)). Connect it with an API key (below).
+- **Devin Desktop** (formerly Windsurf) reaches the sign-in page but then refuses the sign-in: its client drops the `iss` parameter and reports it missing ([devin-cli#5](https://github.com/CognitionAI/devin-cli/issues/5)). Warp's current MCP client code has the same flaw. Connect both with an API key (below).
 
 **If sign-in fails in your app**, connect it with an API key instead:
 
@@ -125,6 +136,45 @@ extensions:
     headers:
       X-API-Key: YOUR_WEALTHNOW_API_KEY
     timeout: 300
+```
+
+**OpenCode** (your global config, `~/.config/opencode/opencode.json`; the key comes from an environment variable):
+
+```json
+{
+  "mcp": {
+    "wealthnow": {
+      "type": "remote",
+      "url": "https://mcp.wealthnow.io/mcp",
+      "headers": { "X-API-Key": "{env:WEALTHNOW_API_KEY}" },
+      "oauth": false
+    }
+  }
+}
+```
+
+**Devin Desktop** (formerly Windsurf; `~/.config/devin/mcp_config.json` on macOS and Linux, `%APPDATA%\devin\mcp_config.json` on Windows; the key comes from an environment variable):
+
+```json
+{
+  "mcpServers": {
+    "wealthnow": {
+      "serverUrl": "https://mcp.wealthnow.io/mcp",
+      "headers": { "X-API-Key": "${env:WEALTHNOW_API_KEY}" }
+    }
+  }
+}
+```
+
+**Warp** (Settings → Agents → MCP servers, then add a server):
+
+```json
+{
+  "wealthnow": {
+    "url": "https://mcp.wealthnow.io/mcp",
+    "headers": { "X-API-Key": "YOUR_WEALTHNOW_API_KEY" }
+  }
+}
 ```
 
 VS Code and Zed sign in on their own; a key also works, for example on a machine without a browser.
