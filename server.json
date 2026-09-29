@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.wealthnow/mcp",
   "title": "Wealthnow",
-  "description": "Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets.",
-  "version": "2.138.1",
+  "description": "Institutional financial data for agents: bond prints, CDS, private markets, options history, 13F.",
+  "version": "2.138.2",
   "websiteUrl": "https://app.wealthnow.io/docs/mcp-and-sdks",
   "repository": {
     "url": "https://github.com/Hlobo-dev/wealthnow-mcp",

@@ -1,6 +1,6 @@
 # Wealthnow MCP server
 
-**Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets for AI agents.**
+**Institutional financial data for AI agents: corporate bond prints and CDS spreads, a 10.6M-company private-markets graph, replayable options-chain history, 13F and insider flows, transcripts, and point-in-time fundamentals. 276 read-only tools, one sign-in.**
 
 Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) server. Add one URL to your AI app, sign in to Wealthnow, and your agent can call financial data tools directly.
 
@@ -19,6 +19,26 @@ Every tool is read-only.
 - **Plans:** your agent can call any tool your plan includes, whether or not it is listed. The Free plan covers market data, fundamentals and SEC filings.
 
 *Data and structured signals, not investment advice.*
+
+## What your agent can reach
+
+Most finance MCP servers stop at quotes and statements. Wealthnow exposes data that desks usually get through a terminal contract:
+
+- **Corporate credit:** FINRA TRACE bond prints, 21.8M daily single-name CDS observations back to 2005, 15.8M credit-rating actions, and syndicated loans with pricing and covenants, keyed off the equity ticker.
+- **Private markets:** 10.6M companies, 3M deals, 4.9M people, 645k investors and funds with IRR, DPI and TVPI, and 100k+ limited partners, with round-by-round syndicates, comparables and a valuation mark.
+- **Options chain history and tape:** the entire chain with greeks, implied vol and open interest for every trading day captured since May 2026, replayable exactly as it stood, plus per-print options and futures trades and minute bars for about 10.5k tickers.
+- **Transcripts and events:** 1.75M earnings-call transcript versions and 41.9M dated corporate events back to 1990.
+- **Institutional and insider flows:** 13F holdings with quarter-over-quarter changes, a 308M-row mutual-fund holdings archive, Form 4, Rule 10b5-1 plans, Form 144 notices, insider buying clusters and congressional trades.
+- **Fundamentals done right:** point-in-time vintages, as-reported XBRL, business segments and survivorship-bias-free prices, so backtests do not see the future.
+- **And more:** options flow and gamma exposure, short interest and borrow cost, alternative data (WARN layoffs, supply-chain dependence, forensic accounting flags, lobbying, contracts, patents), news sentiment back to 2000, macro and rates, crypto, and a point-in-time ticker, CUSIP, ISIN and CIK crosswalk.
+
+Try asking your agent:
+- "Using Wealthnow, is the bond market more worried about Boeing than the stock market is?"
+- "Using Wealthnow, who led each funding round for this startup, and what are its closest private peers?"
+- "Using Wealthnow, what did NVDA's options chain look like the day before its last earnings?"
+
+The Free plan (1,000 credits a month) covers prices, fundamentals and SEC filings. Credit, private markets and options history are on the Pro plan. Failed calls are never charged. [Pricing](https://app.wealthnow.io/docs/pricing-and-credits) · [Get a free key](https://wealthnow.io/register?next=api&utm_source=github&utm_medium=readme&utm_campaign=api_launch_202609)
+
 
 ---
 
