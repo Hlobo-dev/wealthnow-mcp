@@ -13,7 +13,7 @@ Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) 
 | **Registry** | [`io.wealthnow/mcp`](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.wealthnow/mcp) in the official MCP Registry |
 | **Free plan** | 1,000 credits a month, no card needed. Connecting from an AI app starts it for you. |
 
-Every tool is read-only.
+Market data tools are read-only; nothing places orders or moves money.
 - **Default list:** your agent first sees `account_status` and up to 12 starter tools.
 - **Full catalogue:** connect to `https://mcp.wealthnow.io/mcp?catalog=full` to list every public tool. The same list is in the [server card](https://mcp.wealthnow.io/.well-known/mcp/server-card.json).
 - **Plans:** your agent can call any tool your plan includes, whether or not it is listed. The Free plan covers market data, fundamentals and SEC filings.
