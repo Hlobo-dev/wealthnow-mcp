@@ -1,6 +1,6 @@
 # Wealthnow MCP server
 
-**Institutional financial data for AI agents: corporate bond prints and CDS spreads, a 10.6M-company private-markets graph, replayable options-chain history, 13F and insider flows, transcripts, and point-in-time fundamentals. 276 read-only tools, one sign-in.**
+**Institutional financial data for AI agents: corporate bond prints and CDS spreads, a 10.6M-company private-markets graph, replayable options-chain history, 13F and insider flows, transcripts, and point-in-time fundamentals. 370+ REST endpoints across 22 data products, one sign-in.**
 
 Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) server. Add one URL to your AI app, sign in to Wealthnow, and your agent can call financial data tools directly.
 
@@ -267,7 +267,7 @@ More in [`examples/`](./examples): a [quickstart](./examples/quickstart.md), [Py
 
 ## What it covers
 
-- Real-time and historical prices for stocks and crypto
+- Live prices where licensed, each labeled with its age, plus historical prices for stocks and crypto
 - Fundamentals: income statement, balance sheet, cash flow, metrics, screener and peers
 - SEC filings: 10-K, 10-Q, 8-K and structured extracts
 - Insider trades (Form 4), institutional holdings (13F) and congressional trades
@@ -293,3 +293,7 @@ More in [`examples/`](./examples): a [quickstart](./examples/quickstart.md), [Py
 ## License
 
 The examples and listing files in this repository are MIT licensed; see [LICENSE](./LICENSE). The Wealthnow service is covered by its [terms](https://wealthnow.io/terms). "Wealthnow" is a mark of Tengu LLC.
+
+## Disclosure
+
+Wealthnow is a trade name of Tengu LLC, which is not a broker-dealer or a registered investment adviser. Data only, not investment advice.
