@@ -288,7 +288,7 @@ More in [`examples/`](./examples): a [quickstart](./examples/quickstart.md), [Py
 - Pricing: https://app.wealthnow.io/docs/pricing-and-credits
 - Privacy: https://wealthnow.io/privacy
 - Terms: https://wealthnow.io/terms
-- Support: hello@wealthnow.io
+- Support: support@wealthnow.io
 
 ## License
 
@@ -296,4 +296,4 @@ The examples and listing files in this repository are MIT licensed; see [LICENSE
 
 ## Disclosure
 
-Wealthnow is a trade name of Tengu LLC, which is not a broker-dealer or a registered investment adviser. Data only, not investment advice.
+Wealthnow (Tengu LLC) is not currently registered as an investment adviser with the SEC or any state and is not a broker-dealer or a custodian.
