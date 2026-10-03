@@ -1,6 +1,6 @@
 # Wealthnow MCP server
 
-**Institutional financial data for AI agents: corporate bond prints and CDS spreads, a 10.6M-company private-markets graph, replayable options-chain history, 13F and insider flows, transcripts, and point-in-time fundamentals. 276 read-only tools, one sign-in.**
+**Institutional financial data for AI agents: corporate bond prints and CDS spreads, a 10.6M-company private-markets graph, replayable options-chain history, 13F and insider flows, transcripts, and point-in-time fundamentals. 370+ REST endpoints across 22 data products, one sign-in.**
 
 Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) server. Add one URL to your AI app, sign in to Wealthnow, and your agent can call financial data tools directly.
 
@@ -13,7 +13,7 @@ Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) 
 | **Registry** | [`io.wealthnow/mcp`](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.wealthnow/mcp) in the official MCP Registry |
 | **Free plan** | 1,000 credits a month, no card needed. Connecting from an AI app starts it for you. |
 
-Every tool is read-only.
+Market data tools are read-only; nothing places orders or moves money.
 - **Default list:** your agent first sees `account_status` and up to 12 starter tools.
 - **Full catalogue:** connect to `https://mcp.wealthnow.io/mcp?catalog=full` to list every public tool. The same list is in the [server card](https://mcp.wealthnow.io/.well-known/mcp/server-card.json).
 - **Plans:** your agent can call any tool your plan includes, whether or not it is listed. The Free plan covers market data, fundamentals and SEC filings.
@@ -216,7 +216,7 @@ VS Code and Zed sign in on their own; a key also works, for example on a machine
 
 ### With an API key
 
-Get a key from the [Wealthnow dashboard](https://app.wealthnow.io/auth/sign-up) and send it in the `X-API-Key` header. This works in any client that lets you set headers:
+Get a key from the [Wealthnow dashboard](https://app.wealthnow.io/auth/sign-up) and send it in the `X-API-Key` header. Keys start with `wn_`; keys created before October 2026 start with `tengu_` and keep working. This works in any client that lets you set headers:
 
 ```json
 {
@@ -267,7 +267,7 @@ More in [`examples/`](./examples): a [quickstart](./examples/quickstart.md), [Py
 
 ## What it covers
 
-- Real-time and historical prices for stocks and crypto
+- Live prices where licensed, each labeled with its age, plus historical prices for stocks and crypto
 - Fundamentals: income statement, balance sheet, cash flow, metrics, screener and peers
 - SEC filings: 10-K, 10-Q, 8-K and structured extracts
 - Insider trades (Form 4), institutional holdings (13F) and congressional trades
@@ -293,3 +293,7 @@ More in [`examples/`](./examples): a [quickstart](./examples/quickstart.md), [Py
 ## License
 
 The examples and listing files in this repository are MIT licensed; see [LICENSE](./LICENSE). The Wealthnow service is covered by its [terms](https://wealthnow.io/terms). "Wealthnow" is a mark of Tengu LLC.
+
+## Disclosure
+
+Wealthnow is a trade name of Tengu LLC, which is not a broker-dealer or a registered investment adviser. Data only, not investment advice.

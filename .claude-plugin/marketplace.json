@@ -6,13 +6,14 @@
   },
   "metadata": {
     "description": "The Wealthnow MCP server for Claude Code",
-    "version": "2.138.0"
+    "version": "2.158.0"
   },
   "plugins": [
     {
       "name": "wealthnow",
       "source": "./plugins/wealthnow",
-      "description": "Market data, fundamentals, SEC filings, insider, 13F and congressional trades, and private markets. Sign in with Wealthnow over OAuth; every tool is read-only.",
+      "description": "Market data for agents: prices, fundamentals, filings, options, credit and private markets. Sign in with Wealthnow over OAuth. Market data tools are read-only; nothing places orders or moves money.",
+      "keywords": ["finance", "market-data", "fundamentals", "sec-filings", "mcp", "options", "credit", "private-markets", "read-only"],
       "category": "finance"
     }
   ]
