@@ -216,7 +216,7 @@ VS Code and Zed sign in on their own; a key also works, for example on a machine
 
 ### With an API key
 
-Get a key from the [Wealthnow dashboard](https://app.wealthnow.io/auth/sign-up) and send it in the `X-API-Key` header. This works in any client that lets you set headers:
+Get a key from the [Wealthnow dashboard](https://app.wealthnow.io/auth/sign-up) and send it in the `X-API-Key` header. Keys start with `wn_`; keys created before October 2026 start with `tengu_` and keep working. This works in any client that lets you set headers:
 
 ```json
 {
