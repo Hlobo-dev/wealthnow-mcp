@@ -1,0 +1,29 @@
+{
+  "name": "wealthnow",
+  "version": "0.1.0",
+  "description": "TypeScript and JavaScript client for the Wealthnow API: real-time and historical market data, fundamentals, SEC filings, insider and 13F data.",
+  "license": "MIT",
+  "author": "Wealthnow <hello@wealthnow.io>",
+  "homepage": "https://wealthnow.io/api",
+  "repository": { "type": "git", "url": "git+https://github.com/Hlobo-dev/wealthnow-mcp.git", "directory": "sdks/typescript" },
+  "bugs": { "url": "https://github.com/Hlobo-dev/wealthnow-mcp/issues" },
+  "keywords": ["wealthnow", "market data", "stocks", "crypto", "fundamentals", "sec filings", "finance api", "mcp"],
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/esm/index.d.ts", "default": "./dist/esm/index.js" },
+      "require": { "types": "./dist/cjs/index.d.ts", "default": "./dist/cjs/index.js" }
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "sideEffects": false,
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'}))\"",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": { "typescript": "^5.6.0" }
+}
