@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wealthnow"
+version = "0.1.0"
+description = "Python client for the Wealthnow API: real-time and historical market data, fundamentals, SEC filings, insider and 13F data."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Wealthnow", email = "hello@wealthnow.io" }]
+keywords = ["wealthnow", "market data", "stocks", "crypto", "fundamentals", "sec filings", "finance api", "mcp"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://wealthnow.io/api"
+Documentation = "https://app.wealthnow.io/docs/mcp-and-sdks"
+Repository = "https://github.com/Hlobo-dev/wealthnow-mcp"
+Issues = "https://github.com/Hlobo-dev/wealthnow-mcp/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+wealthnow = ["_operations.json", "py.typed"]

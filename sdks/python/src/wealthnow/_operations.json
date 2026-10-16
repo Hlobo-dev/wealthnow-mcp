@@ -1,0 +1,4786 @@
+{
+"operations": {
+"accounting_flags": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/accounting_flags/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Forensic accounting red flags with plain-language reasons, from the forensic-audit dataset: fraud/SEC-investigation/a\u2026"
+},
+"corporate_event_types": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/events/types",
+"path_params": [],
+"query_params": [],
+"summary": "Legend of the 105 licensed institutional KeyDev corporate-event types: id, human label, and the slug accepted by the \u2026"
+},
+"corporate_events": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/events/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"type",
+"since",
+"until",
+"limit",
+"include_closed"
+],
+"summary": "Company corporate-event history from a licensed events feed (41.9M events, 1990-2026): M&A, guidance changes, buyback\u2026"
+},
+"cpcv": {
+"body": true,
+"method": "POST",
+"min_plan": "starter",
+"path": "/api/v3/validation/cpcv",
+"path_params": [],
+"query_params": [],
+"summary": "Subsample Sharpe dispersion over the combinatorial group splits of CPCV (AFML Ch"
+},
+"credit_bonds": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/credit/bonds/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"limit"
+],
+"summary": "FINRA TRACE corporate-bond trade prints for one issuer \u2014 individual OTC trades (price, yield, volume, buy/sell side) \u2026"
+},
+"credit_cds_history": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/credit/cds/{ticker}/history",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"limit"
+],
+"summary": "Daily 5Y single-name CDS spread history: composite par spreads (raw + bps), market-implied default probability, avera\u2026"
+},
+"credit_indices": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/credit/indices",
+"path_params": [],
+"query_params": [
+"family",
+"index_ticker",
+"days",
+"limit"
+],
+"summary": "Credit-index composites \u2014 the credit market's VIX-equivalents: CDX (NA IG/HY) + iTraxx (Europe/Asia/SovX) daily compo\u2026"
+},
+"credit_loans": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/credit/loans/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit",
+"include_lenders"
+],
+"summary": "Syndicated loan book for one borrower: per-facility size, type (revolver/term), maturity, security/seniority, all-in \u2026"
+},
+"credit_ratings": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/credit/ratings/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Full S&P rating-action history for one issuer's debt \u2014 every licensed institutional action (new rating, upgrade, down\u2026"
+},
+"credit_snapshot": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/credit/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "One-call credit snapshot for a company \u2014 call FIRST for any 'how risky is this company's debt?' question: latest secu\u2026"
+},
+"crypto_derivatives_basis": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/crypto/derivatives/basis",
+"path_params": [],
+"query_params": [
+"symbols",
+"asset_class",
+"detail"
+],
+"summary": "Call this to read CARRY \u2014 perpetual premium (mark vs oracle/index) in basis points per venue read first-party, and th\u2026"
+},
+"crypto_derivatives_funding": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/crypto/derivatives/funding",
+"path_params": [],
+"query_params": [
+"symbols",
+"asset_class",
+"detail"
+],
+"summary": "Call this when you need to know whether a coin's perp market is CROWDED \u2014 cross-venue perpetual funding for up to 20 \u2026"
+},
+"crypto_derivatives_open_interest": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/crypto/derivatives/open_interest",
+"path_params": [],
+"query_params": [
+"symbols",
+"asset_class",
+"detail"
+],
+"summary": "Call this for LEVERAGE in the system \u2014 perpetual open interest per base asset in USD: oi_usd_total over the venues re\u2026"
+},
+"crypto_derivatives_vol_surface": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/crypto/derivatives/vol_surface",
+"path_params": [],
+"query_params": [
+"symbol",
+"asset_class"
+],
+"summary": "Call this for the OPTIONS market's view \u2014 the implied-volatility surface for BTC or ETH from one full-chain read (~1,\u2026"
+},
+"crypto_events_announcements": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/crypto/events/announcements",
+"path_params": [],
+"query_params": [
+"hours",
+"event_type",
+"symbols",
+"asset_class"
+],
+"summary": "Call this to know WHAT an exchange announced and WHEN \u2014 listings, delistings and trading-caution flags pulled from se\u2026"
+},
+"crypto_events_headlines": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/crypto/events/headlines",
+"path_params": [],
+"query_params": [
+"limit",
+"event_type",
+"symbols",
+"tier1_only",
+"asset_class"
+],
+"summary": "Call this for what is BREAKING on crypto-native social and blogs right now, already mapped to coins"
+},
+"crypto_history_derivatives": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/crypto/history/derivatives",
+"path_params": [],
+"query_params": [
+"symbol",
+"date",
+"start",
+"end",
+"limit",
+"asset_class"
+],
+"summary": "Recorded history of cross-venue perpetual funding, open interest and basis for one base asset, one row per 15-minute \u2026"
+},
+"crypto_history_derivatives_venues": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/crypto/history/derivatives_venues",
+"path_params": [],
+"query_params": [
+"symbol",
+"venue",
+"date",
+"start",
+"end",
+"limit",
+"asset_class"
+],
+"summary": "Recorded history of every venue row behind the cross-venue funding / open-interest / basis aggregates for one base as\u2026"
+},
+"crypto_history_events": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/crypto/history/events",
+"path_params": [],
+"query_params": [
+"date",
+"start",
+"end",
+"feed",
+"event_type",
+"symbol",
+"venue",
+"limit",
+"asset_class"
+],
+"summary": "The recorded crypto event archive (since 2026-09-02): exchange announcements (listings, delistings, trading cautions)\u2026"
+},
+"crypto_history_onchain": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/crypto/history/onchain",
+"path_params": [],
+"query_params": [
+"metric",
+"date",
+"start",
+"end",
+"limit",
+"asset_class"
+],
+"summary": "Recorded history of on-chain flow readings (since 2026-09-02), one row per metric per 15-minute cycle: stablecoin_flo\u2026"
+},
+"crypto_history_vol_surface": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/crypto/history/vol_surface",
+"path_params": [],
+"query_params": [
+"symbol",
+"date",
+"start",
+"end",
+"limit",
+"asset_class"
+],
+"summary": "Recorded history of the BTC or ETH options volatility surface, one row per 15-minute cycle (recorded since 2026-09-02\u2026"
+},
+"crypto_market_asset_platforms": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/asset_platforms",
+"path_params": [],
+"query_params": [
+"filter",
+"asset_class"
+],
+"summary": "Call this when you need every blockchain (asset platform) id, e.g"
+},
+"crypto_market_categories": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/categories",
+"path_params": [],
+"query_params": [
+"limit",
+"order",
+"category",
+"vs_currency",
+"asset_class"
+],
+"summary": "Call this when the user asks how crypto sectors are doing (DeFi, layer 1, memes, AI ...): market cap and 24 h change \u2026"
+},
+"crypto_market_categories_list": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/categories/list",
+"path_params": [],
+"query_params": [
+"asset_class"
+],
+"summary": "Call this when you need every category id and name (to pass as category= elsewhere)"
+},
+"crypto_market_chart": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/chart",
+"path_params": [],
+"query_params": [
+"symbol",
+"id",
+"days",
+"interval",
+"vs_currency",
+"precision",
+"asset_class"
+],
+"summary": "Call this when the user wants a coin's recent price, market cap and volume series (e.g"
+},
+"crypto_market_chart_range": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/chart/range",
+"path_params": [],
+"query_params": [
+"symbol",
+"id",
+"from",
+"to",
+"interval",
+"vs_currency",
+"precision",
+"asset_class"
+],
+"summary": "Call this when the user wants a coin's price, market cap and volume between two exact dates"
+},
+"crypto_market_coin": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/coin",
+"path_params": [],
+"query_params": [
+"symbol",
+"id",
+"localization",
+"tickers",
+"market_data",
+"community_data",
+"developer_data",
+"sparkline",
+"include_categories_details",
+"dex_pair_format",
+"asset_class"
+],
+"summary": "Call this when the user asks what a coin is, its links, categories, genesis or contract addresses, or wants every mar\u2026"
+},
+"crypto_market_coins": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/coins",
+"path_params": [],
+"query_params": [
+"vs_currency",
+"ids",
+"symbols",
+"include_tokens",
+"category",
+"order",
+"per_page",
+"page",
+"sparkline",
+"price_change_percentage",
+"precision",
+"asset_class"
+],
+"summary": "Call this when the user wants a ranked table of coins (by market cap, volume or name), optionally filtered to ids, sy\u2026"
+},
+"crypto_market_coins_list": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/coins/list",
+"path_params": [],
+"query_params": [
+"include_platform",
+"status",
+"asset_class"
+],
+"summary": "Call this when you need every coin's id, symbol and name (about 17,000 rows), e.g"
+},
+"crypto_market_coins_new": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/coins/new",
+"path_params": [],
+"query_params": [
+"asset_class"
+],
+"summary": "Call this when the user asks which coins were listed most recently"
+},
+"crypto_market_contract": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/contract",
+"path_params": [],
+"query_params": [
+"platform",
+"address",
+"asset_class"
+],
+"summary": "Call this when the user gives a token's contract address and chain and wants to know which coin it is and its market \u2026"
+},
+"crypto_market_derivatives_exchange": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/derivatives/exchange",
+"path_params": [],
+"query_params": [
+"id",
+"include_tickers",
+"asset_class"
+],
+"summary": "Call this when the user asks about one derivatives exchange: open interest, volume and, with include_tickers, its con\u2026"
+},
+"crypto_market_derivatives_exchanges": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/derivatives/exchanges",
+"path_params": [],
+"query_params": [
+"order",
+"per_page",
+"page",
+"asset_class"
+],
+"summary": "Call this when the user asks which derivatives exchanges have the most open interest or volume"
+},
+"crypto_market_derivatives_exchanges_list": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/derivatives/exchanges/list",
+"path_params": [],
+"query_params": [
+"asset_class"
+],
+"summary": "Call this when you need every derivatives exchange id and name"
+},
+"crypto_market_exchange": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/exchange",
+"path_params": [],
+"query_params": [
+"id",
+"dex_pair_format",
+"asset_class"
+],
+"summary": "Call this when the user asks about one exchange: its volume, trust score, country and top pairs"
+},
+"crypto_market_exchange_rates": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/exchange_rates",
+"path_params": [],
+"query_params": [
+"asset_class"
+],
+"summary": "Call this when the user wants Bitcoin's exchange rate against fiat currencies, commodities and other coins"
+},
+"crypto_market_exchange_tickers": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/exchange/tickers",
+"path_params": [],
+"query_params": [
+"id",
+"coin_ids",
+"include_exchange_logo",
+"page",
+"depth",
+"order",
+"dex_pair_format",
+"asset_class"
+],
+"summary": "Call this when the user wants every trading pair on one exchange, optionally for given coins (100 per page)"
+},
+"crypto_market_exchange_volume": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/exchange/volume",
+"path_params": [],
+"query_params": [
+"id",
+"days",
+"asset_class"
+],
+"summary": "Call this when the user asks how an exchange's trading volume changed over time"
+},
+"crypto_market_exchanges": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/exchanges",
+"path_params": [],
+"query_params": [
+"per_page",
+"page",
+"asset_class"
+],
+"summary": "Call this when the user asks which crypto exchanges are the largest or most trusted"
+},
+"crypto_market_exchanges_list": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/exchanges/list",
+"path_params": [],
+"query_params": [
+"status",
+"asset_class"
+],
+"summary": "Call this when you need every exchange id and name (to pass as id= elsewhere)"
+},
+"crypto_market_global": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/global",
+"path_params": [],
+"query_params": [
+"vs_currency",
+"asset_class"
+],
+"summary": "Call this when the user asks about the whole crypto market: total market cap, 24 h volume and their change, Bitcoin a\u2026"
+},
+"crypto_market_global_chart": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/global/chart",
+"path_params": [],
+"query_params": [
+"days",
+"vs_currency",
+"asset_class"
+],
+"summary": "Call this when the user wants the total crypto market cap and volume over time"
+},
+"crypto_market_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/history",
+"path_params": [],
+"query_params": [
+"symbol",
+"id",
+"days",
+"interval",
+"vs_currency",
+"asset_class"
+],
+"summary": "Call this when the user asks how a coin's price, market cap or volume moved over a year, five years or its whole life\u2026"
+},
+"crypto_market_movers": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/movers",
+"path_params": [],
+"query_params": [
+"duration",
+"min_volume_usd",
+"top_coins",
+"include_trending",
+"asset_class"
+],
+"summary": "Call this when the user asks which coins rose or fell the most (top gainers and losers) over 1h to 1y, filtered to co\u2026"
+},
+"crypto_market_ohlc": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/ohlc",
+"path_params": [],
+"query_params": [
+"symbol",
+"id",
+"days",
+"interval",
+"vs_currency",
+"precision",
+"asset_class"
+],
+"summary": "Call this when the user wants a coin's open-high-low-close candles"
+},
+"crypto_market_on_date": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/on_date",
+"path_params": [],
+"query_params": [
+"symbol",
+"id",
+"date",
+"localization",
+"asset_class"
+],
+"summary": "Call this when the user asks what a coin's price, market cap or volume was on a specific past date"
+},
+"crypto_market_onchain_pool": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/onchain/pool",
+"path_params": [],
+"query_params": [
+"network",
+"address",
+"include",
+"asset_class"
+],
+"summary": "Call this when the user asks about one decentralised-exchange pool: its prices, liquidity, volume and trades"
+},
+"crypto_market_onchain_token": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/onchain/token",
+"path_params": [],
+"query_params": [
+"network",
+"address",
+"include",
+"asset_class"
+],
+"summary": "Call this when the user asks about a token on a decentralised exchange: its price, liquidity, volume and top pools"
+},
+"crypto_market_onchain_token_price": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/onchain/token_price",
+"path_params": [],
+"query_params": [
+"network",
+"addresses",
+"include_market_cap",
+"mcap_fdv_fallback",
+"include_24hr_vol",
+"include_24hr_price_change",
+"include_total_reserve_in_usd",
+"asset_class"
+],
+"summary": "Call this when the user wants the on-chain USD price of tokens by contract address (up to 30 on one chain)"
+},
+"crypto_market_onchain_trending_pools": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/onchain/trending_pools",
+"path_params": [],
+"query_params": [
+"network",
+"include",
+"page",
+"duration",
+"asset_class"
+],
+"summary": "Call this when the user asks which decentralised-exchange pools are trending on a chain"
+},
+"crypto_market_price": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/price",
+"path_params": [],
+"query_params": [
+"symbols",
+"ids",
+"vs_currencies",
+"include_market_cap",
+"include_24hr_vol",
+"include_24hr_change",
+"include_last_updated_at",
+"precision",
+"asset_class"
+],
+"summary": "Call this when the user only needs the current price of one or more coins (up to 50 symbols or 250 ids), with market \u2026"
+},
+"crypto_market_profile": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/profile",
+"path_params": [],
+"query_params": [
+"symbols",
+"ids",
+"vs_currency",
+"asset_class"
+],
+"summary": "Call this when the user asks for a coin's price, market cap, rank, supply or all-time high/low, for one coin or up to\u2026"
+},
+"crypto_market_search": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/search",
+"path_params": [],
+"query_params": [
+"query",
+"asset_class"
+],
+"summary": "Call this to find a coin, exchange, category or NFT by name or symbol when you do not know its id"
+},
+"crypto_market_tickers": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/tickers",
+"path_params": [],
+"query_params": [
+"symbol",
+"id",
+"exchange_ids",
+"include_exchange_logo",
+"page",
+"order",
+"depth",
+"dex_pair_format",
+"asset_class"
+],
+"summary": "Call this when the user asks where a coin trades: its trading pairs on every exchange, with price, 24 h volume, sprea\u2026"
+},
+"crypto_market_treasuries": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/treasuries",
+"path_params": [],
+"query_params": [
+"coin",
+"asset_class"
+],
+"summary": "Call this when the user asks which public companies hold Bitcoin or Ether and how much"
+},
+"crypto_market_trending": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/crypto/market/trending",
+"path_params": [],
+"query_params": [
+"show_max",
+"asset_class"
+],
+"summary": "Call this when the user asks what coins, categories or NFTs are trending in searches right now"
+},
+"crypto_onchain_flows": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/crypto/onchain/flows",
+"path_params": [],
+"query_params": [
+"hours",
+"asset_class"
+],
+"summary": "Call this for the numbers that cannot be spun \u2014 stablecoin issuance and lending liquidations read straight off the ch\u2026"
+},
+"crypto_quote": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/crypto/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"vs",
+"series",
+"asset_class"
+],
+"summary": "Live crypto quote from the market-data feed (real-time entitlement): last-trade price, change and volume over the las\u2026"
+},
+"crypto_universe": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/crypto/universe",
+"path_params": [],
+"query_params": [
+"limit",
+"offset",
+"min_dollar_volume",
+"asset_class"
+],
+"summary": "The full liquid crypto universe: every priced USD pair that clears a dollar-volume floor (default $1M a day), ranked \u2026"
+},
+"deflate": {
+"body": true,
+"method": "POST",
+"min_plan": "starter",
+"path": "/api/v3/validation/deflate",
+"path_params": [],
+"query_params": [],
+"summary": "Deflates a supplied Sharpe ratio using the registry's lifetime trial count \u2014 no need to pass trials yourself"
+},
+"deflated_sharpe": {
+"body": true,
+"method": "POST",
+"min_plan": "starter",
+"path": "/api/v3/validation/deflated_sharpe",
+"path_params": [],
+"query_params": [],
+"summary": "Deflated Sharpe Ratio (AFML Ch.11) from an observed Sharpe given the number of trials, observations, and higher momen\u2026"
+},
+"earnings_next": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/earnings/next/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Use when: the user asks for a specific ticker's next earnings date, when a company reports, the earnings calendar ent\u2026"
+},
+"earnings_next_stream": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/earnings/next/{ticker}/stream",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "STREAMING variant of ``earnings_next`` \u2014 same consensus contract, delivered as Server-Sent Events (text/event-stream)"
+},
+"equity_brief": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/skills/apex_equity/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Apex Equity Intelligence \u2014 one-call brief for 'what do you think about $TICKER'"
+},
+"estimates_history_earnings_surprises": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/estimates_history/earnings_surprises/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "A ticker's quarterly EPS estimate vs actual as the estimates feed published them, from the archive: period_end (calen\u2026"
+},
+"estimates_history_insider_sentiment": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/estimates_history/insider_sentiment/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"months"
+],
+"summary": "A ticker's monthly insider sentiment from the estimates feed's archive: mspr, the feed's monthly share purchase ratio\u2026"
+},
+"estimates_history_recommendations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/estimates_history/recommendations/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"months"
+],
+"summary": "A ticker's monthly analyst rating counts from the estimates feed's archive: strong buy, buy, hold, sell and strong se\u2026"
+},
+"factor_characteristic_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/factors/characteristics/{ticker}/history",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"char",
+"start",
+"end",
+"limit"
+],
+"summary": "Monthly time series of ONE factor characteristic for a stock (e.g"
+},
+"factor_characteristics": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/factors/characteristics/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"as_of"
+],
+"summary": "The stock's most recent monthly firm-characteristic vector in the academic firm-characteristic archive (~460 columns \u2026"
+},
+"factor_decay": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/features/decay",
+"path_params": [],
+"query_params": [],
+"summary": "IC/IR half-life per factor \u2014 how fast each factor's predictive power decays"
+},
+"factor_exposures": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/factors/exposures/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Rolling 60-month factor betas (Fama-French 5 + momentum) for one stock: beta_mkt/smb/hml/rmw/cma/umd with alpha (mont\u2026"
+},
+"factor_predictors": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/factors/predictors/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"latest",
+"limit"
+],
+"summary": "academic-style predictor panel for one stock \u2014 a compact vector of 13 accounting characteristics built from QUARTERLY\u2026"
+},
+"feature_importance": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/features/importance",
+"path_params": [],
+"query_params": [
+"top_n",
+"model"
+],
+"summary": "Top-N feature importances for the prediction models (default top 50, optionally filtered to one model)"
+},
+"features_catalogue": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/features/datasets",
+"path_params": [],
+"query_params": [],
+"summary": "FEATURE-STORE CATALOGUE \u2014 the derived research panels this platform computes for its own models: what exists, how muc\u2026"
+},
+"features_dataset": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/features/{dataset}",
+"path_params": [
+"dataset"
+],
+"query_params": [
+"ticker",
+"limit",
+"since",
+"until"
+],
+"summary": "READ ONE DERIVED FEATURE PANEL \u2014 the model-ready research features this platform computes for itself: price/return an\u2026"
+},
+"framework_lookup": {
+"body": true,
+"method": "POST",
+"min_plan": "pro",
+"path": "/api/v3/framework/lookup",
+"path_params": [],
+"query_params": [],
+"summary": "Curated decision framework for an intent (capital_allocation / verdict / comparison): methodology paragraph, decision\u2026"
+},
+"fundamentals_ai_analyze": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/fundamentals/ai_analyze/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "UNAVAILABLE: the analysis source has answered every request with an error since 2026-09-24, so each call answers 503 \u2026"
+},
+"fundamentals_all": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/all",
+"path_params": [],
+"query_params": [
+"ticker",
+"period",
+"limit"
+],
+"summary": "All three financial statements (income, balance sheet, cash flow) for a ticker in one call (default quarterly, last 4)"
+},
+"fundamentals_balance_sheets": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/balance_sheets",
+"path_params": [],
+"query_params": [
+"ticker",
+"period",
+"limit"
+],
+"summary": "SEC-reported balance sheets for a ticker: assets, liabilities and equity per period, quarterly or annual (default qua\u2026"
+},
+"fundamentals_cash_flow_statements": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/cash_flow_statements",
+"path_params": [],
+"query_params": [
+"ticker",
+"period",
+"limit"
+],
+"summary": "SEC EDGAR cash-flow statements for a ticker \u2014 operating, investing, and financing flows per period, quarterly or annu\u2026"
+},
+"fundamentals_company_facts": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/company_facts",
+"path_params": [],
+"query_params": [
+"ticker"
+],
+"summary": "Static company profile for one ticker \u2014 sector, industry, CIK, exchange, market cap and employee count (employees; th\u2026"
+},
+"fundamentals_company_full": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/company_full/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "One-call company snapshot: profile, latest fiscal year and quarter, trailing twelve months (income, cash flow with it\u2026"
+},
+"fundamentals_dividends": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/dividends",
+"path_params": [],
+"query_params": [
+"tickers"
+],
+"summary": "Dividend profile per ticker \u2014 DPS, payout ratio, consecutive-growth streak and 10Y history; accepts comma-separated t\u2026"
+},
+"fundamentals_full": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/full/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "One-shot fundamentals bundle for a ticker, fetched in parallel: the metrics snapshot (same blocks and labels as funda\u2026"
+},
+"fundamentals_growth": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/growth",
+"path_params": [],
+"query_params": [
+"tickers",
+"limit"
+],
+"summary": "Growth metrics \u2014 YoY, 3Y CAGR, 5Y CAGR and margin trends; accepts comma-separated tickers for one-call bulk comparison"
+},
+"fundamentals_historical": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/historical/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"statement_type",
+"start_year",
+"end_year",
+"include_quarterly"
+],
+"summary": "Multi-decade historical financial statements for one ticker from SEC EDGAR \u2014 income, balance, and cash-flow, filterab\u2026"
+},
+"fundamentals_income_statements": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/income_statements",
+"path_params": [],
+"query_params": [
+"ticker",
+"period",
+"limit"
+],
+"summary": "SEC-reported income statements (revenue to net income, EPS), quarterly, annual or TTM (default quarterly, last 8)"
+},
+"fundamentals_insider_trades": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/fundamentals/insider_trades",
+"path_params": [],
+"query_params": [
+"ticker",
+"limit"
+],
+"summary": "Form-4 insider transactions for one ticker \u2014 officer and director buys and sells (default limit 50)"
+},
+"fundamentals_institutional_ownership": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/fundamentals/institutional_ownership",
+"path_params": [],
+"query_params": [
+"ticker",
+"limit"
+],
+"summary": "13F institutional holdings for one ticker, itemized by holding institution (default limit 50)"
+},
+"fundamentals_metrics": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/metrics",
+"path_params": [],
+"query_params": [
+"ticker",
+"period",
+"limit"
+],
+"summary": "Derived financial-metric rows per period for a ticker \u2014 P/E, ROE, margins, FCF yield, debt ratios \u2014 quarterly, annual\u2026"
+},
+"fundamentals_metrics_snapshot": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/metrics_snapshot",
+"path_params": [],
+"query_params": [
+"ticker"
+],
+"summary": "Latest fundamentals snapshot for a ticker in one call: profile, latest fiscal year and quarter, a trailing-twelve-mon\u2026"
+},
+"fundamentals_news": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/news",
+"path_params": [],
+"query_params": [
+"ticker",
+"limit",
+"start_date",
+"end_date"
+],
+"summary": "Curated news articles for one ticker from the fundamentals market-data feed, with start_date/end_date filtering (defa\u2026"
+},
+"fundamentals_peers": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/peers/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit",
+"min_relative_size"
+],
+"summary": "Same-industry comparables for a ticker (default 10): the company's GICS sub-industry among US exchange listings (its \u2026"
+},
+"fundamentals_pit": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/fundamentals/pit/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"as_of",
+"periods",
+"indfmt",
+"consol",
+"popsrc",
+"datafmt"
+],
+"summary": "WHAT THE MARKET ACTUALLY KNEW on a given date \u2014 as-FIRST-REPORTED quarterly financials for a ticker as they stood on \u2026"
+},
+"fundamentals_pit_coverage": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/fundamentals/pit_coverage",
+"path_params": [],
+"query_params": [
+"ticker"
+],
+"summary": "The honest bounds of the point-in-time primitive: how many published versions are held, for how many companies, the s\u2026"
+},
+"fundamentals_pit_vintages": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/fundamentals/pit/{ticker}/vintages",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"datadate",
+"indfmt",
+"consol",
+"popsrc",
+"datafmt"
+],
+"summary": "THE RESTATEMENT TRAIL for one fiscal quarter \u2014 every published version of the period in order, each with the day it b\u2026"
+},
+"fundamentals_price_snapshot": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/price_snapshot",
+"path_params": [],
+"query_params": [
+"ticker",
+"asset_class"
+],
+"summary": "Latest quote for one ticker"
+},
+"fundamentals_prices": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/prices",
+"path_params": [],
+"query_params": [
+"ticker",
+"asset_class",
+"interval",
+"interval_multiplier",
+"start_date",
+"end_date",
+"limit"
+],
+"summary": "Historical OHLCV bars for one ticker at second/minute/hour/day/week/month granularity (interval_multiplier for e.g"
+},
+"fundamentals_screener": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/screener",
+"path_params": [],
+"query_params": [
+"sector",
+"industry",
+"roe_min_pct",
+"roe_max_pct",
+"roa_min_pct",
+"net_margin_min_pct",
+"revenue_growth_min_pct",
+"eps_growth_min_pct",
+"payout_ratio_max_pct",
+"gross_margin_min_pct",
+"operating_margin_min_pct",
+"revenue_min_usd",
+"revenue_max_usd",
+"gross_margin_min",
+"operating_margin_min",
+"revenue_min",
+"revenue_max",
+"roe_min",
+"roe_max",
+"roa_min",
+"net_margin_min",
+"revenue_growth_min",
+"eps_growth_min",
+"debt_to_equity_max",
+"current_ratio_min",
+"years_dividend_growth_min",
+"payout_ratio_max",
+"sort_by",
+"sort_order",
+"limit",
+"page",
+"min_market_cap_usd",
+"min_adv_usd",
+"security_class"
+],
+"summary": "Multi-filter stock screener combining profitability (ROE, ROA, net margin), growth (revenue, EPS), financial-health (\u2026"
+},
+"fundamentals_screener_presets": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/screener/presets",
+"path_params": [],
+"query_params": [],
+"summary": "Catalog of pre-built screener strategies \u2014 Aristocrats, Cash Cows, Value, Quality and more"
+},
+"fundamentals_search": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/search",
+"path_params": [],
+"query_params": [
+"q",
+"limit"
+],
+"summary": "Fuzzy company lookup \u2014 resolves a free-text name or partial ticker to matching companies (default 10)"
+},
+"fundamentals_sec_filings": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/sec_filings",
+"path_params": [],
+"query_params": [
+"ticker",
+"limit",
+"form_type"
+],
+"summary": "SEC filings list for a ticker \u2014 10-K, 10-Q, 8-K, S-1 and more, with an optional form_type filter (default limit 20)"
+},
+"fundamentals_segments": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/fundamentals/segments/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"year",
+"date",
+"stype",
+"limit"
+],
+"summary": "Business + geographic SEGMENT breakdown for one company \u2014 decomposes a fiscal period into reportable segments by line\u2026"
+},
+"fundamentals_tickers": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/tickers",
+"path_params": [],
+"query_params": [
+"is_sp500",
+"sector",
+"limit",
+"page"
+],
+"summary": "Paged listing of the full covered ticker universe, filterable to S&P 500 membership or one sector (limit/page paging:\u2026"
+},
+"funds_mutual_fund_ownership": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/funds/mutual_fund_ownership/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"top",
+"min_market_val"
+],
+"summary": "Which mutual funds hold a stock \u2014 each fund's portfolio number (fund names are not held yet: fund_name is null, and s\u2026"
+},
+"governance_dossier": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/governance/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "One-call corporate-governance dossier: board size + composition (independent vs executive directors, current members)\u2026"
+},
+"index_hedge_proposals": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/institutional/hedging",
+"path_params": [],
+"query_params": [],
+"summary": "Index hedge proposals (SPY/QQQ/IWM) computed from live dealer positioning \u2014 protective puts when dealers are short ga\u2026"
+},
+"insider_clusters": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/insider/clusters",
+"path_params": [],
+"query_params": [
+"limit"
+],
+"summary": "Clusters of insider buying across companies: tickers where two or more distinct insiders made purchases (Form 4 code \u2026"
+},
+"intel_analyst_consensus": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/analyst_consensus/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"recent_action_limit"
+],
+"summary": "Analyst consensus: rating_label (Strong Buy\u2026Strong Sell), rating_score (1-5), bucket counts, price_target_avg/high/lo\u2026"
+},
+"intel_borrow_cost": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/borrow_cost/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Securities-lending borrow cost (annualized fee %, rebate, utilization, shares available) \u2014 LIVE"
+},
+"intel_borrow_cost_history": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/borrow_cost_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"limit"
+],
+"summary": "Daily securities-lending borrow-cost HISTORY for one ticker from the licensed-research warehouse (default: last 90 da\u2026"
+},
+"intel_calendar_conference_calls": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/calendar/conference_calls",
+"path_params": [],
+"query_params": [
+"tickers",
+"date_from",
+"date_to",
+"importance",
+"limit"
+],
+"summary": "Earnings-call schedule per company (tickers required, at most 5): one row per earnings call with date (the call's day\u2026"
+},
+"intel_calendar_economics": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/calendar/economics",
+"path_params": [],
+"query_params": [
+"country",
+"date_from",
+"date_to",
+"importance",
+"limit"
+],
+"summary": "US macro release calendar from official schedules: FRED's release calendar (BLS, BEA, Census, Fed and Labor Departmen\u2026"
+},
+"intel_calendar_ratings": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/calendar/ratings",
+"path_params": [],
+"query_params": [
+"tickers",
+"date_from",
+"date_to",
+"action",
+"limit"
+],
+"summary": "Analyst rating actions and price-target changes, live: analyst_firm, action_company (Upgrades/Downgrades/Initiates/Re\u2026"
+},
+"intel_cftc_cot": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/cftc_cot",
+"path_params": [],
+"query_params": [
+"contract"
+],
+"summary": "CFTC Commitments-of-Traders positioning for COMMODITY futures (the Disaggregated report: energy, metals, grains, live\u2026"
+},
+"intel_chart": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/intel/chart/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"interval",
+"bars",
+"indicators"
+],
+"summary": "Candlestick chart with optional RSI/MACD/Bollinger overlays \u2014 returns a base64 PNG in a standard image envelope plus \u2026"
+},
+"intel_commodities": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/commodities",
+"path_params": [],
+"query_params": [
+"symbol"
+],
+"summary": "Live prices for the macro commodities (oil WTI/Brent, gold, silver, nat-gas, copper)"
+},
+"intel_congress": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/congress",
+"path_params": [],
+"query_params": [
+"ticker",
+"limit",
+"provider"
+],
+"summary": "Congressional trades from two coverage sources \u2014 a realtime cross-ticker feed (provider=options_flow, default) or a w\u2026"
+},
+"intel_corporate_donors": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/corporate_donors/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Corporate-PAC donations linked to the ticker's parent company (alternative-data): candidate, committee, amount, trans\u2026"
+},
+"intel_darkpool_history": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/darkpool_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"start",
+"end",
+"min_premium",
+"limit"
+],
+"summary": "Historical dark-pool (off-exchange) prints for one ticker \u2014 the per-print warehouse capture behind the live /intel/da\u2026"
+},
+"intel_darkpool_recent": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/darkpool/recent",
+"path_params": [],
+"query_params": [
+"freshness",
+"limit"
+],
+"summary": "Most recent dark-pool prints across all tickers from the options-flow feed (default 50): size, price, notional, execu\u2026"
+},
+"intel_darkpool_ticker": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/darkpool/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"freshness",
+"limit"
+],
+"summary": "Dark-pool prints for one ticker from the options-flow feed (default 50), with the same fields as intel_darkpool_recen\u2026"
+},
+"intel_earnings_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/earnings_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"lookback_quarters"
+],
+"summary": "Last N quarters of earnings for a ticker \u2014 report date, EPS estimate vs actual, surprise %, and the earnings-reaction\u2026"
+},
+"intel_etf_holdings": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/intel/etf_holdings",
+"path_params": [],
+"query_params": [
+"etf",
+"ticker",
+"limit"
+],
+"summary": "ETF composition or inverse-lookup"
+},
+"intel_etf_summary": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/intel/etf_summary/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "One-call ETF intelligence rollup \u2014 top holdings + commodity exposure + which other v3 tools work for this ticker"
+},
+"intel_etf_tide": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/etf_tide/{etf}",
+"path_params": [
+"etf"
+],
+"query_params": [
+"date"
+],
+"summary": "One ETF's options net-premium tide for one session, per tick (archived sessions: one per minute) with its UTC time: n\u2026"
+},
+"intel_exec_compensation": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/exec_compensation/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Annual executive compensation history for a ticker (alternative-data): CEO + named officers, one row per executive an\u2026"
+},
+"intel_factor_importance": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/factor_importance",
+"path_params": [],
+"query_params": [
+"top_n"
+],
+"summary": "What drives the model: Fama-French 5-factor loadings showing which systematic factors explain the strategy's returns,\u2026"
+},
+"intel_gex": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/gex/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"freshness"
+],
+"summary": "Aggregate gamma exposure (GEX) and delta exposure for one ticker from the options-flow feed"
+},
+"intel_gex_history": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/gex_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"start",
+"end",
+"per_strike",
+"limit"
+],
+"summary": "Historical dealer gamma-exposure (GEX) for one ticker \u2014 daily per-strike snapshots behind the live /intel/gex tool"
+},
+"intel_gex_strikes": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/gex_strikes/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"min_strike",
+"max_strike"
+],
+"summary": "Dealer greek exposure per strike for one ticker, current session, all expiries summed at each strike: call_gex / put_\u2026"
+},
+"intel_gov_contracts": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/gov_contracts/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Federal contract awards to one ticker's company as QUARTERLY TOTALS (not individual awards) on the US federal fiscal \u2026"
+},
+"intel_gov_contracts_live": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/gov_contracts_live",
+"path_params": [],
+"query_params": [
+"ticker",
+"limit"
+],
+"summary": "Quarterly federal-contract award totals across tickers (alternative-data): one total per ticker and US federal fiscal\u2026"
+},
+"intel_insider_flow": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/insider_flow/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"as_of",
+"record_type",
+"limit"
+],
+"summary": "INSIDER TRANSACTIONS SPLIT BY WHETHER THE TRADE WAS PRE-SCHEDULED \u2014 Form 4/5 activity for one company with the metada\u2026"
+},
+"intel_insider_flow_coverage": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/insider_flow_coverage",
+"path_params": [],
+"query_params": [
+"ticker"
+],
+"summary": "What insider history exists, for which dates, and how much of it carries a Rule 10b5-1 plan flag \u2014 rows by record typ\u2026"
+},
+"intel_insider_form144": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/insider_form144/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"limit"
+],
+"summary": "INSIDER INTENT-TO-SELL NOTICES \u2014 supply before it hits the tape"
+},
+"intel_insider_trades": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/insider_trades/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "SEC Form 4 insider trades for one ticker \u2014 recent buys and sells by officers, directors, and large holders (default 2\u2026"
+},
+"intel_insiders": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/insiders",
+"path_params": [],
+"query_params": [
+"ticker",
+"limit"
+],
+"summary": "Live cross-ticker Form-4 insider-transaction feed (alternative-data, last ~20k rows): name, transaction_code, shares,\u2026"
+},
+"intel_iv_analytics": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/iv_analytics/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"limit"
+],
+"summary": "Implied-volatility analytics from the end-of-day archive in one call; as_of is the latest completed session (during m\u2026"
+},
+"intel_lobbying": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/lobbying/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Corporate lobbying filings for one ticker, newest first (client, registrant, amount, issues, filing date; limit, defa\u2026"
+},
+"intel_macro_snapshot": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/macro_snapshot",
+"path_params": [],
+"query_params": [
+"freshness"
+],
+"summary": "NOW WITH a `credit` block: CDX IG/HY on-the-run 5Y composite spreads + 1-session delta (T-2 by source, cadence-aware \u2026"
+},
+"intel_market_tide": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/market_tide",
+"path_params": [],
+"query_params": [
+"date"
+],
+"summary": "Whole-market options net-premium tide for one session, one tick every 5 minutes: net call premium and net put premium\u2026"
+},
+"intel_max_pain": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/max_pain/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Max-pain price per options expiration for one ticker from the options-flow feed, with the underlying's latest price (\u2026"
+},
+"intel_ml_drivers": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/ml_drivers/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"top"
+],
+"summary": "UNAVAILABLE: no SHAP drivers can be served"
+},
+"intel_ml_prediction": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/ml_prediction/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"asset_class"
+],
+"summary": "Stored equity model SCORE, voter evidence and nullable intervals"
+},
+"intel_net_premium": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/net_premium/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date"
+],
+"summary": "One ticker's options net-premium ticks for one session, one row per minute carrying that minute's flow (tape_time, UT\u2026"
+},
+"intel_news_crypto": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/news_crypto",
+"path_params": [],
+"query_params": [
+"tickers",
+"limit",
+"body",
+"date_from",
+"date_to",
+"asset_class"
+],
+"summary": "The newswire's cryptocurrency channel, live, newest first: title, teaser, url, published (UTC), channels, tags, ticke\u2026"
+},
+"intel_news_headlines": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/news_headlines",
+"path_params": [],
+"query_params": [
+"ticker",
+"limit"
+],
+"summary": "MARKET-WIDE ONLY \u2014 never for one ticker's news (that is news_summary)"
+},
+"intel_news_movers": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/news_movers",
+"path_params": [],
+"query_params": [
+"tickers",
+"limit",
+"body",
+"date_from",
+"date_to"
+],
+"summary": "The newswire's movers channel, live, newest first: stories on the biggest gainers, losers, halts and breakouts, with \u2026"
+},
+"intel_news_press_releases": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/news_press_releases",
+"path_params": [],
+"query_params": [
+"tickers",
+"limit",
+"body",
+"date_from",
+"date_to"
+],
+"summary": "Stories the newswire files in its press-releases channel, live, newest first: title, teaser, url, tickers, published \u2026"
+},
+"intel_news_pro": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/news_pro",
+"path_params": [],
+"query_params": [
+"tickers",
+"channels",
+"limit",
+"body",
+"date_from",
+"date_to"
+],
+"summary": "Newswire stories, live: cross-ticker, by ticker (comma-separated, up to 20) or by channel, newest first, with history\u2026"
+},
+"intel_news_why_moving": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/news_why_moving",
+"path_params": [],
+"query_params": [
+"tickers",
+"limit",
+"body",
+"date_from",
+"date_to"
+],
+"summary": "'Why It's Moving' explainers, live: short stories on why a stock or coin is making a notable move, newest first, each\u2026"
+},
+"intel_off_exchange": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/off_exchange/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"freshness",
+"limit"
+],
+"summary": "Daily off-exchange (dark pool + ATS) volume for one ticker, newest session first (default 30 rows), from the warehous\u2026"
+},
+"intel_options_chain": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/options_chain/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"expiration_date",
+"contract_type",
+"limit",
+"min_expiration",
+"max_expiration",
+"min_strike",
+"max_strike"
+],
+"summary": "Live options-chain snapshot for a ticker: per contract Greeks (delta/gamma/theta/vega), implied volatility, open inte\u2026"
+},
+"intel_options_contract": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/options_contract/{option_ticker}",
+"path_params": [
+"option_ticker"
+],
+"query_params": [
+"limit",
+"include"
+],
+"summary": "Live quote and trade tape for ONE option contract: the most recent NBBO quotes (bid/ask/sizes/midpoint) and trades (p\u2026"
+},
+"intel_options_flow": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/options_flow",
+"path_params": [],
+"query_params": [
+"freshness",
+"limit",
+"min_premium"
+],
+"summary": "The most recent unusual options-flow alerts across the whole market from the options-flow feed with premium at or abo\u2026"
+},
+"intel_options_flow_history": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/options_flow_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"start",
+"end",
+"min_premium",
+"side",
+"limit"
+],
+"summary": "Historical options-flow aggregates for one ticker \u2014 the ~60s warehouse capture behind the live /intel/options_flow to\u2026"
+},
+"intel_options_flow_ticker": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/options_flow/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"freshness",
+"limit"
+],
+"summary": "Unusual options-flow alerts for one ticker from the options-flow feed (default 25), newest first; executed_at is the \u2026"
+},
+"intel_options_volume": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/options_volume/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Daily options volume and put/call ratio per day for one ticker from the options-flow feed (default 30 days)"
+},
+"intel_options_volume_history": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/options_volume_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"start",
+"end",
+"limit"
+],
+"summary": "Daily options volume history for one ticker from the options-volume archive (one row per session, newest first; each \u2026"
+},
+"intel_patents": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/patents/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Issued USPTO patents tagged to one ticker \u2014 date, title, IPC class, claim count, and abstract for each (default 25) \u2014\u2026"
+},
+"intel_politicians": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/politicians",
+"path_params": [],
+"query_params": [
+"limit"
+],
+"summary": "Full US Congress roster (House + Senate, alternative-data) with disclosed trade counts per member"
+},
+"intel_risk_free_rate": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/risk_free_rate",
+"path_params": [],
+"query_params": [],
+"summary": "Current US T-bill yields + parked-cash quick-reference"
+},
+"intel_sec13f": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/sec13f",
+"path_params": [],
+"query_params": [
+"ticker",
+"fund",
+"limit"
+],
+"summary": "13F position snapshots from the institutional 13F archive: fund, ticker, shares, value_usd, report_period \u2014 the insti\u2026"
+},
+"intel_sec13f_changes": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/sec13f/changes",
+"path_params": [],
+"query_params": [
+"ticker",
+"fund",
+"min_pct",
+"limit"
+],
+"summary": "Quarter-over-quarter 13F position deltas from the institutional 13F archive, sign preserved: positive = added, negati\u2026"
+},
+"intel_sec13f_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/sec13f_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"quarters",
+"top"
+],
+"summary": "Institutional-holder history \u2014 a holder \u00d7 quarter matrix of 13F positions (shares per quarter-end + latest value, eac\u2026"
+},
+"intel_sector_tide": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/sector_tide/{sector}",
+"path_params": [
+"sector"
+],
+"query_params": [
+"date"
+],
+"summary": "One sector's options net-premium tide for one session, per tick (archived sessions: one per minute) with each tick's \u2026"
+},
+"intel_short_interest": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/short_interest/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "FINRA bi-monthly short interest: short_interest_shares, short_interest_pct_of_shares_outstanding (with shares_outstan\u2026"
+},
+"intel_short_interest_history": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/short_interest_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"limit"
+],
+"summary": "Deep short-selling history \u2014 daily off-exchange short-volume series (short vs total shares across FINRA venues + shor\u2026"
+},
+"intel_street_estimates": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/street_estimates/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Street consensus EPS + options-implied expected move per earnings event, with an 8-quarter history (est vs actual vs \u2026"
+},
+"intel_street_estimates_guidance": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/street_estimates_guidance/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"measure",
+"start",
+"limit"
+],
+"summary": "Management guidance history \u2014 every company-issued guidance range (measure, period, low/high, announce date, street c\u2026"
+},
+"intel_street_estimates_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/street_estimates_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"measure",
+"days",
+"limit"
+],
+"summary": "Analyst-level estimate revision timeline \u2014 every individual broker estimate (announce/revision dates, analyst id, fis\u2026"
+},
+"intel_top_shareholders": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/top_shareholders/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Top institutional / fund / insider shareholders for a ticker (13F archive first, alternative-data fallback), as two l\u2026"
+},
+"intel_top_shareholders_coverage": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/top_shareholders_coverage",
+"path_params": [],
+"query_params": [
+"ticker"
+],
+"summary": "How much institutional-ownership history has actually landed \u2014 per quarter: rows, securities and distinct holders hel\u2026"
+},
+"intel_top_shareholders_current": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/top_shareholders_current/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"quarter",
+"limit",
+"min_pct"
+],
+"summary": "CURRENT INSTITUTIONAL HOLDERS of a company, largest first \u2014 holder-level positions with shares, market value (USD), p\u2026"
+},
+"intel_twitter": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/twitter/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "UNAVAILABLE: the upstream dataset has returned no rows for any ticker since 2026-07-02 (last checked 2026-10-05), so \u2026"
+},
+"intel_vol_surface": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/vol_surface/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"days",
+"limit"
+],
+"summary": "HISTORICAL standardized implied-vol SURFACE for a company from a licensed academic archive, joined from a plain equit\u2026"
+},
+"intel_voter_attribution": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/voter_attribution/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"voter",
+"days_back"
+],
+"summary": "Causal attribution for a voter's score on a ticker"
+},
+"intel_voter_ic_drift": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/voter_ic_drift",
+"path_params": [],
+"query_params": [],
+"summary": "UNAVAILABLE: no voter has a live IC yet"
+},
+"intel_wsb": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/intel/wsb/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"limit"
+],
+"summary": "Daily r/wallstreetbets mention count and sentiment for one ticker from the alternative-data feed, newest day first (l\u2026"
+},
+"intel_yield_curve": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/intel/yield_curve",
+"path_params": [],
+"query_params": [],
+"summary": "US Treasury yield curve + recession-watch spreads + breakeven inflation"
+},
+"kelly_uncertainty": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/validation/{ticker}/kelly_uncertainty",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Uncertainty-discounted Kelly fraction for one ticker \u2014 the bet size after haircutting full Kelly for estimation error\u2026"
+},
+"macro_dashboard": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/macro",
+"path_params": [],
+"query_params": [],
+"summary": "One-call macro dashboard"
+},
+"macro_history_chokepoints": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/macro_history/chokepoints",
+"path_params": [],
+"query_params": [
+"chokepoint",
+"start",
+"end"
+],
+"summary": "Daily ship transits and estimated cargo (metric tons) through 24 maritime chokepoints (Suez Canal, Panama Canal, Stra\u2026"
+},
+"macro_history_dealer_positioning": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/macro_history/dealer_positioning",
+"path_params": [],
+"query_params": [
+"series",
+"start",
+"end"
+],
+"summary": "Weekly primary-dealer NET positions in Treasury bills, coupons by maturity bucket, TIPS, floating-rate notes and agen\u2026"
+},
+"macro_history_fed_holdings": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/macro_history/fed_holdings",
+"path_params": [],
+"query_params": [
+"start",
+"end",
+"cusip"
+],
+"summary": "The Federal Reserve's Treasury holdings (System Open Market Account), weekly as of each Wednesday: total par in USD a\u2026"
+},
+"macro_history_leading_indicators": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/macro_history/leading_indicators",
+"path_params": [],
+"query_params": [
+"country",
+"start",
+"end"
+],
+"summary": "OECD composite leading indicators, monthly, by country or area (US, China, G7, G20 and 18 more): amplitude-adjusted i\u2026"
+},
+"macro_history_series": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/macro_history/series/{series_id}",
+"path_params": [
+"series_id"
+],
+"query_params": [
+"start",
+"end"
+],
+"summary": "One U.S"
+},
+"macro_history_series_catalog": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/macro_history/series",
+"path_params": [],
+"query_params": [],
+"summary": "Catalogue of the 68 U.S"
+},
+"macro_history_sp500_valuation": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/macro_history/sp500_valuation",
+"path_params": [],
+"query_params": [
+"metric",
+"start",
+"end"
+],
+"summary": "S&P 500 valuation, monthly since 1871: CAPE (price over ten years of inflation-adjusted earnings), trailing P/E (rati\u2026"
+},
+"macro_history_treasury_auctions": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/macro_history/treasury_auctions",
+"path_params": [],
+"query_params": [
+"security_type",
+"term",
+"start",
+"end",
+"limit"
+],
+"summary": "U.S"
+},
+"macro_treasury_curve": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/macro/treasury_curve",
+"path_params": [],
+"query_params": [],
+"summary": "US Treasury yield curve from the Treasury's own daily par yield curve, posted the same business day: all 11 tenors 1m\u2026"
+},
+"market_events_catchup": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/events",
+"path_params": [],
+"query_params": [
+"since",
+"symbols",
+"limit"
+],
+"summary": "UNAVAILABLE: the market-event stream has no producer publishing, so there is nothing to catch up from; every call ans\u2026"
+},
+"market_quote": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/market/quote/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "L1 quote for one ticker via the live vendor_fallback path: last print, bid/ask when the session has a book, sizes, da\u2026"
+},
+"market_regime": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/regime",
+"path_params": [],
+"query_params": [],
+"summary": "Current market regime label ('crisis', 'recession', 'expansion' or 'normal') from a rule-based classification of dail\u2026"
+},
+"ml_predict": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/ml/predict/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Latest ML ensemble prediction for one ticker: blended_score, conviction, decile rank, and per-voter sub-scores"
+},
+"ml_top_picks": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/ml/top-picks",
+"path_params": [],
+"query_params": [
+"n",
+"min_decile",
+"tier",
+"min_conviction"
+],
+"summary": "Top-N ranked tickers from the latest ML ensemble scoring snapshot, optionally floored by min_conviction"
+},
+"ml_weights": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/ml/weights",
+"path_params": [],
+"query_params": [],
+"summary": "ML ensemble voter weights (latest history row, broken out per market regime)"
+},
+"ml_weights_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/ml/weights/history",
+"path_params": [],
+"query_params": [
+"days"
+],
+"summary": "Time series of ML ensemble voter weights (per regime, newest first; days=1-365, default 30)"
+},
+"model_drift": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/models/drift",
+"path_params": [],
+"query_params": [
+"window_days"
+],
+"summary": "Feature and prediction drift over a rolling window (default 30 days)"
+},
+"multi_horizon_batch": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/predict/multi_horizon",
+"path_params": [],
+"query_params": [
+"tickers",
+"horizons"
+],
+"summary": "Multi-horizon model ranks for up to 200 tickers in one call"
+},
+"news_aggregated": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/aggregated",
+"path_params": [],
+"query_params": [
+"hours",
+"limit",
+"ticker"
+],
+"summary": "MARKET-WIDE feed by default: the aggregated cross-source news stream published in the last N hours (default 24), newe\u2026"
+},
+"news_alerts": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/alerts",
+"path_params": [],
+"query_params": [
+"category",
+"tickers",
+"items",
+"page"
+],
+"summary": "Headline-only alert stream \u2014 lighter and faster than full news items; category=general for market-wide or tickers for\u2026"
+},
+"news_all_tickers_sentiment": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/all_tickers_sentiment",
+"path_params": [],
+"query_params": [
+"date_range",
+"page"
+],
+"summary": "Market-wide daily sentiment of ticker-tagged news over a date_range (default last7days): one row per date with positi\u2026"
+},
+"news_by_topic": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/by_topic",
+"path_params": [],
+"query_params": [
+"topic",
+"ticker",
+"items",
+"date_range"
+],
+"summary": "Topic-filtered headlines, optionally per ticker, over a date_range (default last7days, 50 items)"
+},
+"news_category": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/category",
+"path_params": [],
+"query_params": [
+"section",
+"topic",
+"sector",
+"industry",
+"source",
+"items",
+"page",
+"date_range"
+],
+"summary": "Category-scoped news feed: section=general for market-wide or alltickers for company-tagged stories, filterable by to\u2026"
+},
+"news_crypto_all_tickers_sentiment": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/all_tickers_sentiment",
+"path_params": [],
+"query_params": [
+"date_range",
+"page",
+"asset_class"
+],
+"summary": "Market-wide daily sentiment of coin-tagged crypto news over a date_range (default last7days): one row per date with p\u2026"
+},
+"news_crypto_by_category": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/by_category",
+"path_params": [],
+"query_params": [
+"section",
+"items",
+"date_range",
+"asset_class"
+],
+"summary": "Crypto news by section: section='general' for overall crypto-market headlines, section='alltickers' for cross-coin co\u2026"
+},
+"news_crypto_events": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/events",
+"path_params": [],
+"query_params": [
+"tickers",
+"eventid",
+"page",
+"asset_class"
+],
+"summary": "Clustered crypto headline events \u2014 related stories grouped into discrete events; fetch recent events, filter by ticke\u2026"
+},
+"news_crypto_latest": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/latest",
+"path_params": [],
+"query_params": [
+"tickers",
+"items",
+"date_range",
+"asset_class"
+],
+"summary": "Recent crypto news for one or more symbols: title, source, date, topic tags, and the vendor's own per-article sentime\u2026"
+},
+"news_crypto_market_sentiment": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/market_sentiment",
+"path_params": [],
+"query_params": [
+"date_range",
+"asset_class"
+],
+"summary": "Overall crypto market sentiment rollup across the news feed (no ticker filter)"
+},
+"news_crypto_multi_ticker": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/multi_ticker",
+"path_params": [],
+"query_params": [
+"tickers",
+"items",
+"page",
+"asset_class"
+],
+"summary": "Crypto news where ALL the listed coins co-appear in the same story \u2014 a correlation feed"
+},
+"news_crypto_sentiment_stats": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/sentiment_stats",
+"path_params": [],
+"query_params": [
+"ticker",
+"date_range",
+"asset_class"
+],
+"summary": "crypto-news: daily sentiment rollup for a crypto symbol (-1.5 to +1.5; sentiment_scale gives the method)"
+},
+"news_crypto_summary": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/summary/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"asset_class"
+],
+"summary": "crypto-news: one-shot per-coin intel summary"
+},
+"news_crypto_sundown": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/sundown",
+"path_params": [],
+"query_params": [
+"page",
+"asset_class"
+],
+"summary": "Evening crypto market-recap digest, published Mon-Fri at 7pm ET"
+},
+"news_crypto_ticker_only": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/ticker_only",
+"path_params": [],
+"query_params": [
+"ticker",
+"items",
+"page",
+"asset_class"
+],
+"summary": "Crypto news mentioning ONLY the requested coin, with no co-tagged altcoins \u2014 the strictest per-coin filter"
+},
+"news_crypto_ticker_price": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/ticker_price",
+"path_params": [],
+"query_params": [
+"tickers",
+"asset_class"
+],
+"summary": "Delayed crypto prices with 24h volume and price changes \u2014 a single coin, a list, or the top 50 by 24h volume when tic\u2026"
+},
+"news_crypto_top_mentions": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/top_mentions",
+"path_params": [],
+"query_params": [
+"date_range",
+"asset_class"
+],
+"summary": "Top 50 most-mentioned crypto tickers over the window (default last7days) \u2014 a crypto-attention proxy"
+},
+"news_crypto_trending": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/trending",
+"path_params": [],
+"query_params": [
+"ticker",
+"asset_class"
+],
+"summary": "Trending crypto headlines, noise-filtered down to top stories only"
+},
+"news_crypto_whale_summary": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/whale_summary",
+"path_params": [],
+"query_params": [
+"tickers",
+"date_range",
+"asset_class"
+],
+"summary": "Aggregated whale-transaction stats over the window: total volume, net exchange flow (in vs out), and biggest single tx"
+},
+"news_crypto_whale_transactions": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_crypto/whale_transactions",
+"path_params": [],
+"query_params": [
+"tickers",
+"date_range",
+"min_amount",
+"items",
+"page",
+"asset_class"
+],
+"summary": "Large crypto on-chain and exchange transactions for BTC/ETH/SOL/TRX plus major exchanges, filterable by min_amount US\u2026"
+},
+"news_curated_events": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/curated_events",
+"path_params": [],
+"query_params": [
+"ticker",
+"event_type",
+"date_range",
+"items"
+],
+"summary": "Structured market events \u2014 clusters of articles about one catalyst (earnings, deals, contracts, rating moves), each w\u2026"
+},
+"news_event_by_id": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/event_by_id",
+"path_params": [],
+"query_params": [
+"eventid",
+"items",
+"page"
+],
+"summary": "All news items belonging to one clustered event, looked up by eventid, paginated"
+},
+"news_events": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/events",
+"path_params": [],
+"query_params": [
+"hours"
+],
+"summary": "Detected market-moving events across the market over a lookback window (hours param, default 24)"
+},
+"news_forex_by_category": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/by_category",
+"path_params": [],
+"query_params": [
+"section",
+"topic",
+"items",
+"date_range"
+],
+"summary": "Macro and cross-pair FX news: section='general' = market macro (Fed, CPI, ECB, NFP, BoJ, BoE), section='alltickers' =\u2026"
+},
+"news_forex_economic_calendar": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/economic_calendar",
+"path_params": [],
+"query_params": [
+"currency",
+"importance",
+"date_range"
+],
+"summary": "Economic calendar with actual, forecast, and previous values for macro releases (Fed/CPI/NFP/ECB) \u2014 these prints are \u2026"
+},
+"news_forex_events": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/events",
+"path_params": [],
+"query_params": [
+"pair",
+"date_range",
+"items"
+],
+"summary": "Clustered FX news events from a forex newswire \u2014 high press-coverage stories like central-bank decisions, rate hikes,\u2026"
+},
+"news_forex_latest": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/latest",
+"path_params": [],
+"query_params": [
+"pairs",
+"items",
+"date_range"
+],
+"summary": "Recent FX news with sentiment for one or more currency pairs: title, source, sentiment (Positive/Neutral/Negative), d\u2026"
+},
+"news_forex_market_sentiment": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/market_sentiment",
+"path_params": [],
+"query_params": [
+"date_range"
+],
+"summary": "Overall FX market sentiment rollup (no pair filter) \u2014 gauges DXY-style market posture rather than any single pair"
+},
+"news_forex_prices": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/prices",
+"path_params": [],
+"query_params": [
+"pairs",
+"base"
+],
+"summary": "Live FX mid prices (15-min upstream refresh): pass pairs for specific quotes (e.g"
+},
+"news_forex_sentiment_stats": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/sentiment_stats",
+"path_params": [],
+"query_params": [
+"pair",
+"date_range"
+],
+"summary": "fx-news: daily sentiment rollup for an FX pair (-1.5 to +1.5)"
+},
+"news_forex_summary": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/summary/{pair}",
+"path_params": [
+"pair"
+],
+"query_params": [],
+"summary": "fx-news: one-shot per-pair intel summary"
+},
+"news_forex_sundown_digest": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/sundown_digest",
+"path_params": [],
+"query_params": [
+"date_range"
+],
+"summary": "Daily evening FX market summary article"
+},
+"news_forex_top_mentions": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/top_mentions",
+"path_params": [],
+"query_params": [
+"date_range"
+],
+"summary": "fx-news: most-mentioned FX pairs over a window with sentiment tilt"
+},
+"news_forex_trending": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news_forex/trending",
+"path_params": [],
+"query_params": [
+"pair"
+],
+"summary": "Trending FX headlines, noise-filtered down to top stories only"
+},
+"news_latest": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/latest",
+"path_params": [],
+"query_params": [
+"ticker",
+"minutes"
+],
+"summary": "DRILL-DOWN ONLY \u2014 never a first-round call and never alongside news_summary (it already includes recent stories)"
+},
+"news_market_sentiment": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/market_sentiment",
+"path_params": [],
+"query_params": [
+"date_range"
+],
+"summary": "Daily sentiment of general market and macro news (the articles the source tags with no ticker) over a date_range (def\u2026"
+},
+"news_multi_ticker": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/multi_ticker",
+"path_params": [],
+"query_params": [
+"tickers",
+"items",
+"page"
+],
+"summary": "News stories where ALL the listed tickers co-appear in the same article \u2014 a correlation feed"
+},
+"news_ratings": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/ratings",
+"path_params": [],
+"query_params": [
+"tickers",
+"rating_type",
+"date_range",
+"items",
+"page"
+],
+"summary": "Analyst rating actions \u2014 upgrades, downgrades, and initiations, filterable by tickers, rating_type, and date_range; h\u2026"
+},
+"news_sentiment_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/sentiment_history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"min_relevance",
+"entity",
+"limit"
+],
+"summary": "Daily aggregated news sentiment for one company back to 2000 \u2014 mean event sentiment (ESS), event count and mean relev\u2026"
+},
+"news_sentiment_stats": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/sentiment_stats",
+"path_params": [],
+"query_params": [
+"ticker",
+"date_range"
+],
+"summary": "Daily news-sentiment rollup for one ticker: a -1.5 to +1.5 score per day with article counts, over a date_range (defa\u2026"
+},
+"news_summary": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/summary/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "One-shot news intelligence for a ticker: stories of the last 24 hours (news_count_24h counts them all; the newest 20 \u2026"
+},
+"news_sundown": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/sundown",
+"path_params": [],
+"query_params": [
+"date_range",
+"limit"
+],
+"summary": "Curated end-of-day 'sundown' digest \u2014 a market-close recap of the day's news from the newswire, one per trading day, \u2026"
+},
+"news_ticker_news": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/ticker_news",
+"path_params": [],
+"query_params": [
+"tickers",
+"items",
+"page",
+"date_range",
+"topic",
+"topic_or",
+"topic_exclude",
+"source",
+"source_exclude",
+"news_type",
+"sentiment",
+"sortby",
+"days",
+"search",
+"search_or",
+"fallback"
+],
+"summary": "FILTERED-SEARCH ONLY \u2014 reach for this when the user specifies filters (topic, source, sentiment, date_range, article/\u2026"
+},
+"news_ticker_only": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/ticker_only",
+"path_params": [],
+"query_params": [
+"ticker",
+"items",
+"page"
+],
+"summary": "News stories tagged with ONLY this one ticker \u2014 the strictest filter, excluding articles that co-tag competitors or p\u2026"
+},
+"news_top_mentions": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/top_mentions",
+"path_params": [],
+"query_params": [
+"date_range",
+"sector"
+],
+"summary": "Most-mentioned tickers in the news over a window (default today), optionally filtered by sector, each with mention co\u2026"
+},
+"news_trending": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/news/trending",
+"path_params": [],
+"query_params": [
+"ticker"
+],
+"summary": "DRILL-DOWN ONLY \u2014 never alongside news_summary (it already includes trending status)"
+},
+"origin_insider_flow": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/origin/insider_flow/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"days",
+"limit"
+],
+"summary": "Insider transactions straight from the Form 4 filings: owner, title, transaction code, direction, shares, price and s\u2026"
+},
+"origin_ipo_pipeline": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/origin/ipo_pipeline",
+"path_params": [],
+"query_params": [
+"status",
+"limit"
+],
+"summary": "What is going public: deals that are priced, upcoming or newly filed, with offer size, share count, exchange and dates"
+},
+"origin_macro_pulse": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/origin/macro_pulse",
+"path_params": [],
+"query_params": [],
+"summary": "One call for the cross-asset state of the world from the issuing authorities: volatility futures TERM STRUCTURE (cont\u2026"
+},
+"origin_short_activity": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/origin/short_activity/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"days"
+],
+"summary": "How shorted is this name, from the tape itself: the DAILY consolidated short-volume prints (short ratio per session, \u2026"
+},
+"origin_whale_holdings": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/origin/whale_holdings",
+"path_params": [],
+"query_params": [
+"manager",
+"ticker",
+"limit"
+],
+"summary": "What the tracked managers own, as filed on Form 13F: each manager's latest filing, when it is for the quarter now due\u2026"
+},
+"ownership_changes": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/ownership/changes/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"report_period",
+"change_type",
+"limit"
+],
+"summary": "Quarter-over-quarter 13F position changes in a US stock: new, added, reduced and exited positions per filer, largest \u2026"
+},
+"ownership_filer": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/ownership/filer/{filer_id}",
+"path_params": [
+"filer_id"
+],
+"query_params": [
+"report_period",
+"limit"
+],
+"summary": "One 13F filer's holdings at a quarter-end, largest value first: CUSIP, the ticker at the report period, shares, value\u2026"
+},
+"ownership_filers": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/ownership/filers",
+"path_params": [],
+"query_params": [
+"q",
+"limit"
+],
+"summary": "Find 13F filers by name: filer_id, manager name, entity type code, the newest report period and filing date held, and\u2026"
+},
+"ownership_holders": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/ownership/holders/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"report_period",
+"limit"
+],
+"summary": "Every 13F institutional holder of a US stock at one quarter-end, largest first: filer id, manager name, entity type c\u2026"
+},
+"positioning_cot": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/positioning/cot",
+"path_params": [],
+"query_params": [
+"market",
+"weeks",
+"group",
+"limit"
+],
+"summary": "COMMITMENTS OF TRADERS, FULL DISAGGREGATED REPORT (CFTC, commodity futures only): per market, each trader category (p\u2026"
+},
+"prediction_accuracy": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/learning/accuracy",
+"path_params": [],
+"query_params": [
+"window_days"
+],
+"summary": "Realised-vs-predicted accuracy over a rolling window (window_days, default 90) \u2014 how well predictions matched what ac\u2026"
+},
+"prediction_intervals": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/predict/{ticker}/intervals",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"alpha"
+],
+"summary": "Conformal band around one ticker's SCORE at the requested miscoverage alpha (default 0.1 = 90%)"
+},
+"prediction_tracker": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/learning/prediction_tracker",
+"path_params": [],
+"query_params": [
+"limit"
+],
+"summary": "Recent predictions with their resolution state, up to `limit` entries (default 200) \u2014 each call and whether it has re\u2026"
+},
+"prices_corporate_actions": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/prices/corporate_actions/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"limit",
+"as_of"
+],
+"summary": "Complete corporate-action history \u2014 every cash dividend, stock split and distribution back to first listing, from the\u2026"
+},
+"prices_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/prices/history/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"limit",
+"interval"
+],
+"summary": "Survivorship-bias-free daily price history \u2014 archive daily closes, returns, volume and cumulative split adjustment fa\u2026"
+},
+"private_markets_aggregates": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/aggregates",
+"path_params": [],
+"query_params": [
+"by",
+"limit",
+"min_n"
+],
+"summary": "Private-market landscape aggregates: company counts, total and median capital raised, median valuation, median employ\u2026"
+},
+"private_markets_companies": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/companies",
+"path_params": [],
+"query_params": [
+"sector",
+"industry_group",
+"country",
+"region",
+"financing_status",
+"business_status",
+"q",
+"min_raised",
+"max_raised",
+"min_valuation",
+"max_valuation",
+"min_employees",
+"max_employees",
+"founded_after",
+"founded_before",
+"has_ticker",
+"status",
+"sort",
+"desc",
+"limit",
+"offset",
+"detail",
+"fields"
+],
+"summary": "SCREEN private companies by sector, geography, financing/business status, size (total raised/valuation/employees, $MI\u2026"
+},
+"private_markets_company": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}",
+"path_params": [
+"company_id"
+],
+"query_params": [],
+"summary": "FULL private-company profile by company_id: financials (revenue/EBITDA/EBIT/net income/EV/net debt), complete financi\u2026"
+},
+"private_markets_company_comparables": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/comparables",
+"path_params": [
+"company_id"
+],
+"query_params": [
+"limit",
+"detail",
+"fields"
+],
+"summary": "Private peer set for one company: currently-private operating companies in the same industry group (sector when it ha\u2026"
+},
+"private_markets_company_deals": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/deals",
+"path_params": [
+"company_id"
+],
+"query_params": [
+"limit"
+],
+"summary": "Funding-round and M&A deal history for a private company (deal size, type, VC round, pre/post-money valuation), newes\u2026"
+},
+"private_markets_company_dossier": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/dossier",
+"path_params": [
+"company_id"
+],
+"query_params": [
+"deals",
+"peers",
+"investors",
+"blocks",
+"fields"
+],
+"summary": "EVERYTHING on a private company in ONE call \u2014 the complete detail-page payload: full profile (incl"
+},
+"private_markets_company_investors": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/investors",
+"path_params": [
+"company_id"
+],
+"query_params": [
+"limit",
+"detail",
+"offset"
+],
+"summary": "Investor roster for a private company, resolved through the deal-investor relation; detail=full adds every investor c\u2026"
+},
+"private_markets_company_page": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/page",
+"path_params": [
+"company_id"
+],
+"query_params": [
+"tab",
+"deals",
+"team"
+],
+"summary": "The private-company DETAIL PAGE in ONE call, render-ready: identity + key facts + the valuation/revenue/headcount tap\u2026"
+},
+"private_markets_company_realtime": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/realtime",
+"path_params": [
+"company_id"
+],
+"query_params": [],
+"summary": "LIVE real-time overlay for a private company \u2014 the fast-moving complement to the (weekly, possibly STALE) private-mar\u2026"
+},
+"private_markets_company_relations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/relations",
+"path_params": [
+"company_id"
+],
+"query_params": [
+"relation",
+"limit"
+],
+"summary": "Traverse a company's private-market graph one edge per call (relation=): competitors, investors, board, similar compa\u2026"
+},
+"private_markets_company_syndicate": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/syndicate",
+"path_params": [
+"company_id"
+],
+"query_params": [
+"limit"
+],
+"summary": "PER-ROUND investor syndicate \u2014 who was IN each round, who LED it, and how big the check was"
+},
+"private_markets_company_valuation": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/company/{company_id}/valuation",
+"path_params": [
+"company_id"
+],
+"query_params": [],
+"summary": "A private valuation mark for a company: estimate, confidence band, the additive driver bridge (Round Momentum / Compa\u2026"
+},
+"private_markets_deal": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/deal/{deal_id}",
+"path_params": [
+"deal_id"
+],
+"query_params": [],
+"summary": "Single deal / financing round by deal_id: deal size, type, VC round, pre/post-money valuation, and a synopsis"
+},
+"private_markets_deal_relations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/deal/{deal_id}/relations",
+"path_params": [
+"deal_id"
+],
+"query_params": [
+"relation",
+"limit"
+],
+"summary": "Traverse a deal's graph one edge per call (relation=): investors, tranches, debt lenders, sellers, service providers,\u2026"
+},
+"private_markets_fund": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/fund/{fund_id}",
+"path_params": [
+"fund_id"
+],
+"query_params": [],
+"summary": "Fund profile + performance: vintage, size, category, status, and returns (IRR/DPI/TVPI/RVPI/NAV/quartile) when loaded"
+},
+"private_markets_fund_relations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/fund/{fund_id}/relations",
+"path_params": [
+"fund_id"
+],
+"query_params": [
+"relation",
+"limit"
+],
+"summary": "Traverse a fund's graph one edge per call (relation=): investors, LP commitments, team, portfolio holdings, close his\u2026"
+},
+"private_markets_investor": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/investor/{investor_id}",
+"path_params": [
+"investor_id"
+],
+"query_params": [],
+"summary": "Investor profile for one VC/PE/family office by investor_id: type, AUM, dry powder, year founded, investment focus, a\u2026"
+},
+"private_markets_investor_relations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/investor/{investor_id}/relations",
+"path_params": [
+"investor_id"
+],
+"query_params": [
+"relation",
+"limit"
+],
+"summary": "Traverse an investor's graph one edge per call (relation=): portfolio companies, funds raised, co-investors, LPs, boa\u2026"
+},
+"private_markets_limited_partner": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/limited_partner/{lp_id}",
+"path_params": [
+"lp_id"
+],
+"query_params": [],
+"summary": "Limited-partner profile by lp_id: LP type, AUM, total/active commitments, allocation to alternatives, and openness to\u2026"
+},
+"private_markets_limited_partner_relations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/limited_partner/{lp_id}/relations",
+"path_params": [
+"lp_id"
+],
+"query_params": [
+"relation",
+"limit"
+],
+"summary": "Traverse an LP's graph one edge per call (relation=): fund commitments, board, mandates, news, service providers"
+},
+"private_markets_news": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/news",
+"path_params": [],
+"query_params": [
+"limit",
+"sort",
+"category",
+"sector",
+"company_id",
+"q",
+"cursor"
+],
+"summary": "News about PRIVATE companies (venture-backed, unbacked or in IPO registration) from the private-markets news archive:\u2026"
+},
+"private_markets_person": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/person/{person_id}",
+"path_params": [
+"person_id"
+],
+"query_params": [],
+"summary": "Person profile (founder/exec/board member) by person_id: role, board seats, affiliated deals/funds, education, and pr\u2026"
+},
+"private_markets_person_relations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/person/{person_id}/relations",
+"path_params": [
+"person_id"
+],
+"query_params": [
+"relation",
+"limit"
+],
+"summary": "Traverse a person's graph one edge per call (relation=): career positions, board seats, education, affiliated deals/f\u2026"
+},
+"private_markets_relations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/relations",
+"path_params": [],
+"query_params": [],
+"summary": "Catalogue of every queryable relation per private-markets entity type \u2014 the map of the private-capital graph"
+},
+"private_markets_search": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/search",
+"path_params": [],
+"query_params": [
+"q",
+"type",
+"limit",
+"detail",
+"fields"
+],
+"summary": "Search PRIVATE companies / investors (VC/PE) / funds / people / limited partners by name (prefix, case-insensitive), \u2026"
+},
+"private_markets_search_suggest": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/search/suggest",
+"path_params": [],
+"query_params": [
+"q",
+"limit"
+],
+"summary": "INSTANT (sub-100ms) private-company typeahead \u2014 prominence-ranked with the SAME ranking as search, so the famous comp\u2026"
+},
+"private_markets_service_provider": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/service_provider/{sp_id}",
+"path_params": [
+"sp_id"
+],
+"query_params": [],
+"summary": "Advisory-firm profile by sp_id \u2014 the law firm, investment bank, auditor or consultancy behind private-market deals: t\u2026"
+},
+"private_markets_service_provider_relations": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/private_markets/service_provider/{sp_id}/relations",
+"path_params": [
+"sp_id"
+],
+"query_params": [
+"relation",
+"limit"
+],
+"summary": "Reverse adviser index for one service provider: every deal, company, investor, fund or LP the firm has advised (relat\u2026"
+},
+"quote_and_fundamentals": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/snapshot/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Live price snapshot for one ticker: latest price plus basic trading stats"
+},
+"rankings_beta": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/rankings/beta",
+"path_params": [],
+"query_params": [
+"limit",
+"offset",
+"decile",
+"tier"
+],
+"summary": "The v3 beta ranking: a monthly, rank-only research ranking of about 1,900 liquid US common stocks on four signals (12\u2026"
+},
+"rankings_beta_ticker": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/rankings/beta/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "One stock's place in the v3 beta ranking: its rank, decile, percentile and signal percentiles when it is in the book,\u2026"
+},
+"rankings_evidence": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/rankings/evidence",
+"path_params": [],
+"query_params": [],
+"summary": "Evidence grades A-D for FIRM's rankings: what the measured evidence lets a client be shown of each one"
+},
+"rankings_evidence_subject": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/rankings/evidence/{subject}",
+"path_params": [
+"subject"
+],
+"query_params": [],
+"summary": "One ranking's evidence grade A-D (e.g"
+},
+"reference_batch": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/reference/batch",
+"path_params": [],
+"query_params": [
+"symbols",
+"prefer_country"
+],
+"summary": "BATCH CROSSWALK \u2014 up to 100 symbols resolved in ONE pass, each returning its current identifiers (CUSIP9, CUSIP8, ISI\u2026"
+},
+"reference_coverage": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/reference/coverage",
+"path_params": [],
+"query_params": [],
+"summary": "CROSSWALK COVERAGE \u2014 what the reference dataset actually contains, measured live and stated as numbers rather than ad\u2026"
+},
+"reference_crosswalk": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/reference/crosswalk/{symbol}",
+"path_params": [
+"symbol"
+],
+"query_params": [
+"as_of",
+"prefer_country",
+"include_history",
+"include_share_classes",
+"include_private_graph"
+],
+"summary": "IDENTITY CROSSWALK for one symbol \u2014 every identifier the security and its issuer carry, which rung matched, and how c\u2026"
+},
+"reference_history": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/reference/history/{symbol}",
+"path_params": [
+"symbol"
+],
+"query_params": [
+"as_of",
+"prefer_country",
+"include_change_log"
+],
+"summary": "IDENTIFIER HISTORY for one symbol \u2014 every identifier this security has ever been bound to, with the dates each bindin\u2026"
+},
+"reference_lookup": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/reference/lookup",
+"path_params": [],
+"query_params": [
+"cusip",
+"isin",
+"sedol",
+"ticker",
+"ibtic",
+"gvkey",
+"cik",
+"entity_id",
+"private_company_id",
+"permno",
+"include_retired"
+],
+"summary": "REVERSE IDENTIFIER LOOKUP \u2014 give it a CUSIP, ISIN, SEDOL, ticker, estimate-vendor ticker, gvkey, regulator filer numb\u2026"
+},
+"regime_forecast": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/regime/forecast",
+"path_params": [],
+"query_params": [
+"horizon_days"
+],
+"summary": "Forecast regime probabilities N days ahead (default 21-day horizon)"
+},
+"regime_history": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/regime/history",
+"path_params": [],
+"query_params": [
+"days"
+],
+"summary": "Historical regime labels over the last N days (default 180)"
+},
+"research_correlation_mesh": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/research/correlation_mesh",
+"path_params": [],
+"query_params": [
+"seed",
+"depth"
+],
+"summary": "Returns-correlation mesh around a seed ticker \u2014 nodes = tickers, edges = |rho| >= 0.6 on monthly returns over the las\u2026"
+},
+"research_datasets": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/datasets",
+"path_params": [],
+"query_params": [],
+"summary": "Discover the 47 research datasets served by the research-dataset reader \u2014 equity prices (daily/monthly/delistings/dis\u2026"
+},
+"research_fetch_url": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/research/fetch_url",
+"path_params": [],
+"query_params": [
+"url",
+"max_chars"
+],
+"summary": "Read ONE page whose URL a search already returned (research_web_search finds the links)"
+},
+"research_portfolio_aware_score": {
+"body": true,
+"method": "POST",
+"min_plan": "pro",
+"path": "/api/v3/research/portfolio_aware_score",
+"path_params": [],
+"query_params": [],
+"summary": "Adjusts a candidate's standalone score for the user's portfolio"
+},
+"research_read": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/datasets/{dataset}",
+"path_params": [
+"dataset"
+],
+"query_params": [
+"ticker",
+"limit",
+"permno",
+"gvkey"
+],
+"summary": "Read any research dataset by slug (discover via research_datasets)"
+},
+"research_scenario_simulator": {
+"body": true,
+"method": "POST",
+"min_plan": "pro",
+"path": "/api/v3/research/scenario_simulator",
+"path_params": [],
+"query_params": [],
+"summary": "Deterministic DCF-style projection under bull, base and bear (or your own) scenarios"
+},
+"research_synthesis": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/research/synthesis",
+"path_params": [],
+"query_params": [
+"query",
+"system_prompt"
+],
+"summary": "Citation-rich research synthesis (grounded LLM)"
+},
+"research_web_search": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/research/web_search",
+"path_params": [],
+"query_params": [
+"query",
+"providers",
+"freshness",
+"count"
+],
+"summary": "Multi-mode web search in parallel across link, cited-synthesis and social-sentiment coverage"
+},
+"research_x_sentiment": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/research/x_sentiment",
+"path_params": [],
+"query_params": [
+"ticker",
+"query"
+],
+"summary": "Real-time X/Twitter sentiment narrative"
+},
+"sec_filing_extract": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/sec/filing/{ticker}/{filing_type}",
+"path_params": [
+"ticker",
+"filing_type"
+],
+"query_params": [
+"sections",
+"max_chars",
+"offset"
+],
+"summary": "The company's latest 10-K, 10-Q or 8-K, read from SEC EDGAR"
+},
+"short_borrow": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/short/borrow/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"limit"
+],
+"summary": "Daily borrow cost and availability for a US stock from a broker-lending feed: indicative borrow fee and rebate (perce\u2026"
+},
+"short_interest": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v2/short-interest/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [],
+"summary": "Short interest for one ticker: the latest settled short interest (shares short, average daily volume, days-to-cover) \u2026"
+},
+"short_lending": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/short/lending/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"start",
+"end",
+"limit"
+],
+"summary": "Daily securities-lending supply and demand for a US stock: lendable and actively lendable shares and USD value, share\u2026"
+},
+"signal_correlation": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v2/signals/correlation",
+"path_params": [],
+"query_params": [],
+"summary": "Correlation matrix across the voter signals feeding the ensemble"
+},
+"signals_cross_asset": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/signals/cross_asset",
+"path_params": [],
+"query_params": [],
+"summary": "Cross-asset regime signals \u2014 the regime read taken across asset classes rather than from single tickers"
+},
+"signals_fusion": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/signals/fusion",
+"path_params": [],
+"query_params": [
+"limit",
+"tickers"
+],
+"summary": "Latest fused signals across all voters \u2014 the combined signal after voter aggregation, up to `limit` names (default 10\u2026"
+},
+"stream_alerts": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/alerts",
+"path_params": [],
+"query_params": [],
+"summary": "UNAVAILABLE: no producer publishes risk or guardrail alerts, so a connect answers 503 upstream_unavailable (error_cod\u2026"
+},
+"stream_bars": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/bars",
+"path_params": [],
+"query_params": [
+"symbols"
+],
+"summary": "SSE stream of live 1-minute OHLCV bars for EVERY US-listed ticker (no subscribe step needed \u2014 the all-ticker feed is \u2026"
+},
+"stream_decisions": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/decisions",
+"path_params": [],
+"query_params": [
+"symbols"
+],
+"summary": "SSE stream of decision-lifecycle events"
+},
+"stream_events": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/events",
+"path_params": [],
+"query_params": [
+"user_id"
+],
+"summary": "Per-user SSE event stream, scoped to the calling key: a customer key reads only its own namespace, whatever user_id i\u2026"
+},
+"stream_market_events": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/market_events",
+"path_params": [],
+"query_params": [
+"symbols"
+],
+"summary": "UNAVAILABLE: no producer publishes market events, so a connect answers 503 upstream_unavailable (error_code producer_\u2026"
+},
+"stream_news": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/news",
+"path_params": [],
+"query_params": [
+"symbols"
+],
+"summary": "UNAVAILABLE: no news producer publishes the live news stream, so a connect answers 503 upstream_unavailable (error_co\u2026"
+},
+"stream_quotes": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/quotes",
+"path_params": [],
+"query_params": [
+"symbols"
+],
+"summary": "SSE stream of live per-venue bid/ask quote events for the requested symbols (bid/ask price+size + per-side venue IDs)"
+},
+"stream_realtime_guide": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/realtime_guide",
+"path_params": [],
+"query_params": [],
+"summary": "Agent protocol for real-time queries: which SSE feed maps to which intent (live price, bars, quotes, signals, decisio\u2026"
+},
+"stream_signals": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/signals",
+"path_params": [],
+"query_params": [
+"symbols"
+],
+"summary": "SSE stream of fused signals"
+},
+"stream_ticks": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/stream/ticks",
+"path_params": [],
+"query_params": [
+"symbols"
+],
+"summary": "SSE stream of live US-equity trades"
+},
+"supply_chain_geo_revenue": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/supply_chain/geo_revenue/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"period",
+"layer",
+"country",
+"top_countries",
+"company_id"
+],
+"summary": "GEOGRAPHIC REVENUE EXPOSURE for one company \u2014 where the revenue actually comes from, estimated region by region and c\u2026"
+},
+"supply_chain_relationships": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/supply_chain/relationships/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"rel_type",
+"status",
+"as_of",
+"listed_only",
+"group_by",
+"limit",
+"company_id"
+],
+"summary": "The SUPPLY-CHAIN GRAPH around one company \u2014 its customers, suppliers, competitors and partners in one call, each with\u2026"
+},
+"supply_chain_revenue_dependence": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/supply_chain/revenue_dependence/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"status",
+"as_of",
+"min_percent",
+"limit",
+"company_id"
+],
+"summary": "REVENUE DEPENDENCE, both sides \u2014 the revenue-at-risk map around one company"
+},
+"tape_bars": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/bars/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"start",
+"end",
+"interval",
+"limit",
+"adjust"
+],
+"summary": "Intraday minute bars for one equity from the API's own capture (~10.5k tickers, extended hours included, each bar lab\u2026"
+},
+"tape_futures": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/futures/{root}",
+"path_params": [
+"root"
+],
+"query_params": [
+"date",
+"limit",
+"cursor",
+"before"
+],
+"summary": "Raw CME futures trade prints for one root (NG, CL, ES...) and one day, from the API's own capture: per-print price, s\u2026"
+},
+"tape_futures_contracts": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/futures_contracts/{root}",
+"path_params": [
+"root"
+],
+"query_params": [
+"limit"
+],
+"summary": "Live list of the tradeable outright futures contracts for one product root (ES, NQ, CL, GC, ZN, 6E, SR3...), front mo\u2026"
+},
+"tape_futures_curve": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/futures_curve/{root}",
+"path_params": [
+"root"
+],
+"query_params": [
+"date",
+"limit"
+],
+"summary": "Futures term structure for one CME root (27 roots incl"
+},
+"tape_futures_live": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/futures_live/{symbol}",
+"path_params": [
+"symbol"
+],
+"query_params": [
+"include",
+"limit",
+"days"
+],
+"summary": "Live market data for ONE futures contract: pass a contract (ESZ6, CLX6; the archive's CLX26 spelling is accepted) or \u2026"
+},
+"tape_index_bars": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/index_bars/{index}",
+"path_params": [
+"index"
+],
+"query_params": [
+"date",
+"start",
+"end",
+"interval",
+"limit"
+],
+"summary": "Intraday minute bars for the major index tapes \u2014 SPX, NDX, DJI, RUT, VIX \u2014 from the API's own indices capture"
+},
+"tape_microstructure": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/microstructure/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"limit"
+],
+"summary": "Microstructure windows per ticker from the API's live tape: rolling 60 s vwap, trade count/avg size, block count/vol,\u2026"
+},
+"tape_options": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/options/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"min_premium",
+"side",
+"limit",
+"cursor"
+],
+"summary": "Raw options trade prints for one underlying on one trading day from the API's own capture \u2014 per-print premium (notion\u2026"
+},
+"tape_options_chain": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/tape/options_chain/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"date",
+"contract_type",
+"expiration",
+"min_dte",
+"max_dte",
+"min_open_interest",
+"min_volume",
+"moneyness",
+"sort",
+"limit"
+],
+"summary": "Historical OPTIONS CHAIN slice for one underlying on one snapshot day from the API's own daily chain capture \u2014 per co\u2026"
+},
+"technical_analysis": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/skills/ta_master/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"interval",
+"bars"
+],
+"summary": "One-call technical read on a ticker: fuses candlestick chart (RSI/MACD/BB), GEX, max pain, options flow/volume, insid\u2026"
+},
+"trade_setups": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/decision/trade_setups",
+"path_params": [],
+"query_params": [
+"limit",
+"min_conviction"
+],
+"summary": "Top trade setups from the decision engine with **defensive-alternates baked in**"
+},
+"trading_plan": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/skills/trading_plan/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"bias",
+"risk_pct"
+],
+"summary": "Long/short plan levels for a ticker: entry (the last completed daily close, dated plan.as_of), stop (the 20-day swing\u2026"
+},
+"transcript_text": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/transcripts/{ticker}/{event_id}",
+"path_params": [
+"ticker",
+"event_id"
+],
+"query_params": [
+"components",
+"max_turns"
+],
+"summary": "Full earnings-call transcript as ordered speaker turns \u2014 use when the user wants what management or analysts actually\u2026"
+},
+"transcripts_list": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/transcripts/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"since",
+"limit"
+],
+"summary": "List a company's earnings calls and investor-event transcripts (1.75M calls), newest first \u2014 call this FIRST to get t\u2026"
+},
+"transcripts_search": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/transcripts/search",
+"path_params": [],
+"query_params": [
+"q",
+"ticker",
+"since",
+"scope",
+"limit"
+],
+"summary": "Search earnings-call transcripts"
+},
+"twap_plan": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/execution/twap_plan/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"qty",
+"minutes"
+],
+"summary": "Even-slice arithmetic scenario for a requested quantity and duration"
+},
+"ultimate_decision": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/decision/ultimate",
+"path_params": [],
+"query_params": [
+"ticker"
+],
+"summary": "Ultimate-engine aggregate decision for one ticker \u2014 the top-level verdict aggregated across the engine stack"
+},
+"universe_scan": {
+"body": false,
+"method": "GET",
+"min_plan": "starter",
+"path": "/api/v3/decision/universe_scan",
+"path_params": [],
+"query_params": [
+"limit",
+"min_adv_dollars"
+],
+"summary": "The latest model book sorted by absolute blended_score, up to `limit` names, as a tradable set when it can be: read l\u2026"
+},
+"volatility_vix_indices": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/volatility/vix_indices",
+"path_params": [],
+"query_params": [
+"index",
+"start",
+"end",
+"limit"
+],
+"summary": "VOLATILITY INDEX HISTORY: daily open, high, low and close of VIX (S&P 500 30-day implied volatility), VXO (S&P 100, t\u2026"
+},
+"volatility_vx_curve": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/volatility/vx_curve",
+"path_params": [],
+"query_params": [
+"date",
+"history"
+],
+"summary": "VIX FUTURES CURVE: the monthly VIX futures' daily settlements for one session (contract_month, expiration, days_to_ex\u2026"
+},
+"vwap_plan": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/execution/vwap_plan/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"qty",
+"reference_date",
+"minutes_per_slice"
+],
+"summary": "Historical volume-weighted quantity scenario for one ticker and a completed XNYS session"
+},
+"workforce_layoff_screen": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/workforce/layoff_screen",
+"path_params": [],
+"query_params": [
+"days",
+"min_employees",
+"state",
+"limit"
+],
+"summary": "CROSS-SECTIONAL LAYOFF SCREEN \u2014 which listed companies filed WARN-Act layoff notices in the last N days, ranked by em\u2026"
+},
+"workforce_layoffs": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/workforce/layoffs/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"months",
+"limit",
+"with_workforce",
+"employer_id"
+],
+"summary": "WARN-Act LAYOFF FILINGS for one company \u2014 the public notices an employer must file WEEKS BEFORE a cut, so they lead t\u2026"
+},
+"workforce_momentum": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/workforce/momentum/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"months",
+"employer_id"
+],
+"summary": "Monthly EMPLOYMENT MOMENTUM for one company \u2014 headcount trend, hiring vs attrition and salary level, from a monthly w\u2026"
+},
+"workforce_momentum_screen": {
+"body": false,
+"method": "GET",
+"min_plan": "pro",
+"path": "/api/v3/workforce/momentum_screen",
+"path_params": [],
+"query_params": [
+"months_back",
+"min_headcount",
+"order",
+"limit"
+],
+"summary": "CROSS-SECTIONAL HIRING SCREEN \u2014 rank listed employers by headcount growth between the panel's latest month and N mont\u2026"
+},
+"xbrl_concept_history": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/xbrl/{ticker}/{concept}",
+"path_params": [
+"ticker",
+"concept"
+],
+"query_params": [
+"taxonomy",
+"unit",
+"form",
+"start",
+"end",
+"as_of",
+"history",
+"limit"
+],
+"summary": "One XBRL concept's as-reported history \u2014 period, value, SEC form, accession, filed date \u2014 from SEC EDGAR's live compa\u2026"
+},
+"xbrl_concepts": {
+"body": false,
+"method": "GET",
+"min_plan": "free",
+"path": "/api/v3/fundamentals/companyfacts/{ticker}",
+"path_params": [
+"ticker"
+],
+"query_params": [
+"search",
+"limit"
+],
+"summary": "Directory of every as-reported XBRL concept (us-gaap/dei/ifrs-full) a company has filed \u2014 unit(s), observation count \u2026"
+}
+},
+"spec_version": "2.162"
+}

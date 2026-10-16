@@ -274,6 +274,15 @@ More in [`examples/`](./examples): a [quickstart](./examples/quickstart.md), [Py
 - News and sentiment, macro, rates, FX and commodities
 - Options flow, alternative data and private markets (companies, deals, investors)
 
+## SDKs
+
+Clients for the REST API, with every operation callable by the same name the MCP server uses for the tool:
+
+```bash
+pip install wealthnow   # Python, see sdks/python
+npm i wealthnow         # TypeScript / JavaScript, see sdks/typescript
+```
+
 ## Discovery
 
 - MCP server card: https://mcp.wealthnow.io/.well-known/mcp/server-card.json
