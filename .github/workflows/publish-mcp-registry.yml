@@ -25,7 +25,8 @@ concurrency:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    # CI runs only on the self-hosted studio Mac pool (owner rule: no GitHub-hosted minutes).
+    runs-on: [self-hosted, macOS, ARM64, studio]
     environment: mcp-registry-publish
     steps:
       - uses: actions/checkout@v5
@@ -61,9 +62,9 @@ jobs:
           # publisher is a fixed release checked against its published sha256.
           # Bump both lines together (assets on github.com/modelcontextprotocol/registry/releases).
           VER=v1.8.1
-          SHA=a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc
-          curl -fsSL -o mcp-publisher.tar.gz "https://github.com/modelcontextprotocol/registry/releases/download/${VER}/mcp-publisher_linux_amd64.tar.gz"
-          echo "${SHA}  mcp-publisher.tar.gz" | sha256sum -c -
+          SHA=e45e520892460732a4bdf37255576415d4a53ec171f8b913faf15bb1aef7cb77
+          curl -fsSL -o mcp-publisher.tar.gz "https://github.com/modelcontextprotocol/registry/releases/download/${VER}/mcp-publisher_darwin_arm64.tar.gz"
+          echo "${SHA}  mcp-publisher.tar.gz" | shasum -a 256 -c -
           tar xzf mcp-publisher.tar.gz mcp-publisher
 
       - name: Validate server.json
