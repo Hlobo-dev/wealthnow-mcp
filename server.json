@@ -27,7 +27,7 @@
       ]
     },
     {
-      "src": "https://app.wealthnow.io/tengu-logo-light.png",
+      "src": "https://raw.githubusercontent.com/Hlobo-dev/wealthnow-mcp/main/assets/wealthnow-logo-512.png",
       "mimeType": "image/png",
       "sizes": [
         "512x512"

@@ -189,7 +189,7 @@ Most apps that support remote MCP servers with OAuth take `https://mcp.wealthnow
 
 ### With an API key
 
-If your app cannot sign in, or you are calling from a script, get a key from the [Wealthnow dashboard](https://app.wealthnow.io/auth/sign-up) and send it in the `X-API-Key` header. Keys start with `wn_`; keys created before October 2026 start with `tengu_` and keep working. Keep the key in user-level settings, never in a project file that may be committed.
+If your app cannot sign in, or you are calling from a script, get a key from the [Wealthnow dashboard](https://app.wealthnow.io/auth/sign-up) and send it in the `X-API-Key` header. Keys start with `wn_`; older keys keep working. Keep the key in user-level settings, never in a project file that may be committed.
 
 ```json
 {
@@ -301,7 +301,7 @@ npm i wealthnow         # TypeScript / JavaScript, see sdks/typescript
 
 ## License
 
-The examples, SDKs and listing files in this repository are MIT licensed; see [LICENSE](./LICENSE). The Wealthnow API and MCP server are a commercial service covered by the [Wealthnow terms](https://wealthnow.io/terms); the MIT license does not grant access to them. "Wealthnow" is a mark of Tengu LLC.
+The examples, SDKs and listing files in this repository are MIT licensed; see [LICENSE](./LICENSE). The Wealthnow API and MCP server are a commercial service covered by the [Wealthnow terms](https://wealthnow.io/terms); the MIT license does not grant access to them.
 
 ## Disclosure
 
