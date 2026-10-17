@@ -57,7 +57,14 @@ jobs:
       - name: Install mcp-publisher
         if: steps.exists.outputs.skip == 'false'
         run: |
-          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          # Pinned: this step runs with the registry signing key in the job, so the
+          # publisher is a fixed release checked against its published sha256.
+          # Bump both lines together (assets on github.com/modelcontextprotocol/registry/releases).
+          VER=v1.8.1
+          SHA=a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc
+          curl -fsSL -o mcp-publisher.tar.gz "https://github.com/modelcontextprotocol/registry/releases/download/${VER}/mcp-publisher_linux_amd64.tar.gz"
+          echo "${SHA}  mcp-publisher.tar.gz" | sha256sum -c -
+          tar xzf mcp-publisher.tar.gz mcp-publisher
 
       - name: Validate server.json
         if: steps.exists.outputs.skip == 'false'

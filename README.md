@@ -22,7 +22,7 @@ Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) 
 
 ## Tools
 
-- **40 default tools.** On the Free plan your agent sees up to 40 tools: every tool the plan can call, plus `account_status` and `search_tools`. Larger plans show a bounded list of about 100.
+- **40 default tools on every plan.** Your agent's tool list holds 40 tools, including `account_status`, `search_tools` and `call_tool`; the list is the same size on Free and on paid plans.
 - **The full catalog** is one call away: `search_tools` finds any tool by topic, and `call_tool` runs one that is not in the list. Your agent can call any tool your plan includes, listed or not.
 - **Every tool, with its schema,** is in the [server card](https://mcp.wealthnow.io/.well-known/mcp/server-card.json). To list them all in your app, connect to `https://mcp.wealthnow.io/mcp?catalog=full`.
 
