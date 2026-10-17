@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.wealthnow/mcp",
   "title": "Wealthnow",
-  "description": "Read-only market data for agents: prices, fundamentals, filings, options, credit, private markets.",
-  "version": "2.158.0",
+  "description": "Market data MCP for AI agents: prices, fundamentals, SEC filings, 13F, insider, options, credit",
+  "version": "2.162.0",
   "websiteUrl": "https://app.wealthnow.io/docs/mcp-and-sdks",
   "repository": {
     "url": "https://github.com/Hlobo-dev/wealthnow-mcp",
@@ -42,7 +42,7 @@
       "headers": [
         {
           "name": "X-API-Key",
-          "description": "Optional. Your Wealthnow API key, also accepted as Authorization: Bearer. Apps that support MCP OAuth (Claude, ChatGPT, Cursor, VS Code and others) sign in through the browser and need no key.",
+          "description": "Optional. OAuth is supported: apps with MCP OAuth (Claude, ChatGPT, Cursor, VS Code and others) sign in through the browser and need no key. For scripts and apps without OAuth, send your Wealthnow API key here (also accepted as Authorization: Bearer).",
           "isRequired": false,
           "isSecret": true,
           "format": "string"
