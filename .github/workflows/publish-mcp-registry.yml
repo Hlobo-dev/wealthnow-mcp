@@ -1,0 +1,80 @@
+# Publishes server.json to the official MCP Registry (io.wealthnow/mcp) on
+# every release tag, so the registry entry always matches this repository.
+#
+# Release: bump nothing by hand; push a tag that matches the API version,
+#   git tag v2.163.0 && git push origin v2.163.0
+# The tag (minus the "v") becomes the registry version. Registry versions are
+# immutable, so a tag whose version is already published is skipped, not
+# re-sent; for a metadata-only change, bump the patch (v2.162.1).
+#
+# Auth is DNS on wealthnow.io. The ed25519 key is an environment secret on
+# "mcp-registry-publish", which only runs for v* tags (deployment rule), so no
+# branch push or fork PR can reach it.
+name: Publish to MCP Registry
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mcp-registry-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: mcp-registry-publish
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set version from tag
+        id: version
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Tag $GITHUB_REF_NAME is not vMAJOR.MINOR.PATCH"
+            exit 1
+          fi
+          jq --arg v "$VERSION" '.version = $v' server.json > server.tmp && mv server.tmp server.json
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Skip if this version is already published
+        id: exists
+        run: |
+          NAME=$(jq -r .name server.json)
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' \
+            "https://registry.modelcontextprotocol.io/v0.1/servers/${NAME/\//%2F}/versions/${{ steps.version.outputs.version }}")
+          if [ "$CODE" = "200" ]; then
+            echo "::notice::$NAME ${{ steps.version.outputs.version }} is already in the registry; nothing to publish."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install mcp-publisher
+        if: steps.exists.outputs.skip == 'false'
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+
+      - name: Validate server.json
+        if: steps.exists.outputs.skip == 'false'
+        run: ./mcp-publisher validate server.json
+
+      - name: Publish
+        if: steps.exists.outputs.skip == 'false'
+        env:
+          MCP_PRIVATE_KEY: ${{ secrets.MCP_PRIVATE_KEY }}
+        run: |
+          ./mcp-publisher login dns --domain wealthnow.io --private-key "$MCP_PRIVATE_KEY"
+          ./mcp-publisher publish server.json
+          ./mcp-publisher logout
+
+      - name: Verify latest
+        if: steps.exists.outputs.skip == 'false'
+        run: |
+          LATEST=$(curl -fsS "https://registry.modelcontextprotocol.io/v0.1/servers/io.wealthnow%2Fmcp/versions/latest" | jq -r .server.version)
+          echo "Registry latest: $LATEST"
+          test "$LATEST" = "${{ steps.version.outputs.version }}"
