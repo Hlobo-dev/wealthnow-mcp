@@ -1,3 +1,5 @@
+<p align="center"><img src="./assets/wealthnow-logo-512.png" alt="Wealthnow" width="112" height="112"></p>
+
 # Wealthnow MCP server
 
 **Market data MCP for AI agents: prices, fundamentals, SEC filings, insider, 13F and congress trades, options flow, credit, macro, private markets.**
@@ -305,4 +307,4 @@ The examples, SDKs and listing files in this repository are MIT licensed; see [L
 
 ## Disclosure
 
-Wealthnow is a trade name of Tengu LLC, which is not a broker-dealer or a registered investment adviser. Wealthnow provides data for research and education only. Nothing it returns is investment, tax or legal advice, or a recommendation to buy or sell any security. Data can be delayed, incomplete or wrong; verify it before you rely on it.
+Wealthnow is not a broker-dealer or a registered investment adviser. Wealthnow provides data for research and education only. Nothing it returns is investment, tax or legal advice, or a recommendation to buy or sell any security. Data can be delayed, incomplete or wrong; verify it before you rely on it.
