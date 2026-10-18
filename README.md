@@ -114,12 +114,12 @@ Or run `code --add-mcp '{"name":"wealthnow","type":"http","url":"https://mcp.wea
 
 ### Windsurf (now Devin Desktop)
 
-Add this to `~/.config/devin/mcp_config.json` (macOS and Linux) or `%APPDATA%\devin\mcp_config.json` (Windows):
+Add this to `~/.config/devin/mcp_config.json` (macOS and Linux) or `%APPDATA%\devin\mcp_config.json` (Windows), or run `devin mcp add -s user wealthnow https://mcp.wealthnow.io/mcp`:
 
 ```json
 {
   "mcpServers": {
-    "wealthnow": { "serverUrl": "https://mcp.wealthnow.io/mcp" }
+    "wealthnow": { "url": "https://mcp.wealthnow.io/mcp" }
   }
 }
 ```
@@ -202,7 +202,7 @@ If your app cannot sign in, or you are calling from a script, get a key from the
 }
 ```
 
-The same `headers` object works in VS Code (with `"type": "http"`), Windsurf (with `serverUrl`), Cline, Goose and Gemini CLI (`-H "X-API-Key: ..."`). Zed skips sign-in when an `Authorization` header is set, so use `"Authorization": "Bearer YOUR_WEALTHNOW_API_KEY"` there. For Codex, set `bearer_token_env_var = "WEALTHNOW_API_KEY"` under `[mcp_servers.wealthnow]` in `~/.codex/config.toml`.
+The same `headers` object works in VS Code (with `"type": "http"`), Windsurf / Devin Desktop (with `url`), Cline, Goose and Gemini CLI (`-H "X-API-Key: ..."`). Zed skips sign-in when an `Authorization` header is set, so use `"Authorization": "Bearer YOUR_WEALTHNOW_API_KEY"` there. For Codex, set `bearer_token_env_var = "WEALTHNOW_API_KEY"` under `[mcp_servers.wealthnow]` in `~/.codex/config.toml`.
 
 **VS Code** can prompt for the key once and store it securely:
 
