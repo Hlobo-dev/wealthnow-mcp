@@ -11,6 +11,13 @@
   },
   "icons": [
     {
+      "src": "https://raw.githubusercontent.com/Hlobo-dev/wealthnow-mcp/main/assets/wealthnow-logo-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    },
+    {
       "src": "https://app.wealthnow.io/favicon/favicon-light.svg",
       "mimeType": "image/svg+xml",
       "theme": "light",
@@ -25,14 +32,6 @@
       "sizes": [
         "any"
       ]
-    },
-    {
-      "src": "https://raw.githubusercontent.com/Hlobo-dev/wealthnow-mcp/main/assets/wealthnow-logo-512.png",
-      "mimeType": "image/png",
-      "sizes": [
-        "512x512"
-      ],
-      "theme": "light"
     }
   ],
   "remotes": [
