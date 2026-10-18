@@ -5,8 +5,11 @@
 **Market data MCP for AI agents: prices, fundamentals, SEC filings, insider, 13F and congress trades, options flow, credit, macro, private markets.**
 
 [![MCP Registry](https://img.shields.io/badge/MCP_Registry-io.wealthnow%2Fmcp-0b0b14?style=flat-square)](https://registry.modelcontextprotocol.io/v0.1/servers/io.wealthnow%2Fmcp/versions/latest)
+[![Add to Claude](https://img.shields.io/badge/Claude-Add_Wealthnow-D97757?style=flat-square&logo=claude&logoColor=white)](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Wealthnow&connectorUrl=https%3A%2F%2Fmcp.wealthnow.io%2Fmcp)
 [![Add to Cursor](https://img.shields.io/badge/Cursor-Add_Wealthnow-000000?style=flat-square)](https://cursor.com/install-mcp?name=wealthnow&config=eyJ1cmwiOiJodHRwczovL21jcC53ZWFsdGhub3cuaW8vbWNwIn0%3D)
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Wealthnow-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D)
+[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Wealthnow-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D&quality=insiders)
+[![Add to Kiro](https://img.shields.io/badge/Kiro-Add_Wealthnow-7B42F6?style=flat-square)](https://kiro.dev/launch/mcp/add?name=wealthnow&config=%7B%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%5D%7D)
 
 Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) server. Add one URL to your AI app, sign in to Wealthnow, and your agent can call financial data tools directly. Nothing to install or run.
 
@@ -22,45 +25,33 @@ Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) 
 
 *Wealthnow provides data for research. It is not investment advice; see [Disclosure](#disclosure).*
 
-## Tools
-
-- **40 default tools on every plan.** Your agent's tool list holds 40 tools, including `account_status`, `search_tools` and `call_tool`; the list is the same size on Free and on paid plans.
-- **The full catalog** is one call away: `search_tools` finds any tool by topic, and `call_tool` runs one that is not in the list. Your agent can call any tool your plan includes, listed or not.
-- **Every tool, with its schema,** is in the [server card](https://mcp.wealthnow.io/.well-known/mcp/server-card.json). To list them all in your app, connect to `https://mcp.wealthnow.io/mcp?catalog=full`.
-
-Market data tools are read-only; nothing places orders or moves money.
-
-## What your agent can reach
-
-- **Prices and fundamentals:** live prices where licensed (each labeled with its age), historical prices, income statement, balance sheet, cash flow, metrics, screener and peers, with point-in-time vintages and as-reported XBRL so backtests do not see the future.
-- **SEC filings:** 10-K, 10-Q, 8-K and structured extracts.
-- **Insider, institutional and congressional flows:** Form 4, Rule 10b5-1 plans, Form 144 notices, 13F holdings with quarter-over-quarter changes, and congressional trades.
-- **Options:** options flow and gamma exposure, and the full chain with greeks, implied vol and open interest, replayable as it stood on any captured day.
-- **Credit:** FINRA TRACE bond prints, single-name CDS, credit-rating actions and syndicated loans, keyed off the equity ticker.
-- **Macro:** rates, FX, commodities and economic series.
-- **Private markets:** companies, funding rounds, investors and funds, with syndicates and comparables.
-- **And more:** news and sentiment, earnings-call transcripts, short interest, alternative data, crypto, and a ticker, CUSIP, ISIN and CIK crosswalk.
-
-Try asking your agent:
-- "Using Wealthnow, is the bond market more worried about Boeing than the stock market is?"
-- "Using Wealthnow, which members of Congress traded NVDA this year, and what did insiders do?"
-- "Using Wealthnow, what did NVDA's options chain look like the day before its last earnings?"
-
-The Free plan covers prices, fundamentals and SEC filings. Credit, private markets and options history are on paid plans. Failed calls are never charged. [Pricing](https://app.wealthnow.io/docs/pricing-and-credits) · [Get a free account](https://wealthnow.io/register?next=api&utm_source=github&utm_medium=readme&utm_campaign=api_launch_202610)
-
 ---
 
 ## Install
 
 Every app below connects to the same URL, `https://mcp.wealthnow.io/mcp`, and signs you in to Wealthnow in the browser the first time you use it. No key is needed unless noted.
 
+### Quick install
+
+| App | One click or one command |
+|---|---|
+| **Claude** (web, Desktop, mobile) | [Add Wealthnow to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Wealthnow&connectorUrl=https%3A%2F%2Fmcp.wealthnow.io%2Fmcp) |
+| **Cursor** | [Add Wealthnow to Cursor](https://cursor.com/install-mcp?name=wealthnow&config=eyJ1cmwiOiJodHRwczovL21jcC53ZWFsdGhub3cuaW8vbWNwIn0%3D) |
+| **VS Code** (GitHub Copilot) | [Install in VS Code](https://vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D) · [Install in VS Code Insiders](https://insiders.vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D&quality=insiders) |
+| **Kiro** | [Add Wealthnow to Kiro](https://kiro.dev/launch/mcp/add?name=wealthnow&config=%7B%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%5D%7D) |
+| **ChatGPT** | Plugins → **+** → **Add custom MCP server** → `https://mcp.wealthnow.io/mcp` ([steps](#chatgpt)) |
+| **Claude Code** | `claude mcp add --transport http --scope user wealthnow https://mcp.wealthnow.io/mcp` |
+| **Gemini CLI** | `gemini extensions install https://github.com/Hlobo-dev/wealthnow-mcp` |
+| **Codex** (CLI, IDE extension, ChatGPT desktop app) | `codex mcp add wealthnow --url https://mcp.wealthnow.io/mcp` |
+| **Windsurf / Devin Desktop** | `devin mcp add -s user wealthnow https://mcp.wealthnow.io/mcp` |
+| **Zed** | Settings → AI → MCP Servers → **Add Remote Server** ([config](#zed)) |
+| **Goose**, **LM Studio** | Open the app link in [Goose](#goose) or [LM Studio](#lm-studio) |
+
 ### Claude (claude.ai, Claude Desktop, Claude mobile)
 
-**[Add Wealthnow to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Wealthnow&connectorUrl=https%3A%2F%2Fmcp.wealthnow.io%2Fmcp)**
-
-Or by hand:
-1. In Claude, open **Customize → Connectors → Add custom connector**.
-2. Enter the name `Wealthnow` and the URL `https://mcp.wealthnow.io/mcp`, then click **Add**.
+Use the **[Add Wealthnow to Claude](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Wealthnow&connectorUrl=https%3A%2F%2Fmcp.wealthnow.io%2Fmcp)** link, which opens Claude with the name and URL filled in for you to confirm. Or by hand:
+1. In Claude, open **Customize → Connectors**, click **Add**, then choose **Custom → Web** (on some plans the button reads **Add custom connector**).
+2. Enter the name `Wealthnow` and the URL `https://mcp.wealthnow.io/mcp`, then click **Continue** and **Add**.
 3. Click **Connect**, sign in to Wealthnow, and click **Connect** on the Wealthnow page.
 
 A connector you add on the web also appears in Claude Desktop and on mobile. On a Team or Enterprise plan, an Owner adds it under **Organization settings → Connectors** ([or with this link](https://claude.ai/admin-settings/connectors?modal=add-custom-connector&connectorName=Wealthnow&connectorUrl=https%3A%2F%2Fmcp.wealthnow.io%2Fmcp)), then members click **Connect**.
@@ -82,9 +73,10 @@ Then run `/mcp` inside Claude Code, choose **wealthnow**, and sign in. Or instal
 
 1. Open [chatgpt.com/plugins](https://chatgpt.com/plugins) on the web, click **+**, then **Add custom MCP server**.
 2. Enter the name `Wealthnow` and the server URL `https://mcp.wealthnow.io/mcp`, and set authentication to **OAuth**.
-3. Click **Create as a plugin**, install it, and sign in to Wealthnow when ChatGPT sends you there.
+3. Accept the risk notice, click **Create as a plugin**, install it, and sign in to Wealthnow when ChatGPT sends you there.
+4. In a new chat, type `@` and pick **Wealthnow**.
 
-Custom MCP servers depend on your ChatGPT plan, and workspace admins may control them. If your account does not show **Add custom MCP server**, turn on **Developer mode** in ChatGPT's settings first.
+Custom MCP servers depend on your ChatGPT plan, and workspace admins may control them. If your account does not show **Add custom MCP server**, turn on **Developer mode** in ChatGPT's settings first. In the ChatGPT desktop app, you can also add it under **Settings → MCP servers → Add server** as a **Streamable HTTP** server; that list is shared with Codex (see [Codex](#codex)).
 
 ### Cursor
 
@@ -102,9 +94,9 @@ The button opens Cursor with the server filled in (the same as the deeplink `cur
 
 ### VS Code
 
-**[Install in VS Code](https://vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D)**
+**[Install in VS Code](https://vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D)** · **[Install in VS Code Insiders](https://insiders.vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D&quality=insiders)**
 
-Or run `code --add-mcp '{"name":"wealthnow","type":"http","url":"https://mcp.wealthnow.io/mcp"}'`, or add this to `.vscode/mcp.json` (or your user `mcp.json`):
+Or run `code --add-mcp '{"name":"wealthnow","type":"http","url":"https://mcp.wealthnow.io/mcp"}'` (`code-insiders` for Insiders), or add this to `.vscode/mcp.json` (or your user `mcp.json`):
 
 ```json
 {
@@ -116,7 +108,7 @@ Or run `code --add-mcp '{"name":"wealthnow","type":"http","url":"https://mcp.wea
 
 ### Windsurf (now Devin Desktop)
 
-Add this to `~/.config/devin/mcp_config.json` (macOS and Linux) or `%APPDATA%\devin\mcp_config.json` (Windows), or run `devin mcp add -s user wealthnow https://mcp.wealthnow.io/mcp`:
+Run `devin mcp add -s user wealthnow https://mcp.wealthnow.io/mcp`, or add this to `~/.config/devin/mcp_config.json` (macOS and Linux) or `%APPDATA%\devin\mcp_config.json` (Windows):
 
 ```json
 {
@@ -126,14 +118,32 @@ Add this to `~/.config/devin/mcp_config.json` (macOS and Linux) or `%APPDATA%\de
 }
 ```
 
+On older Windsurf releases the file is `~/.codeium/windsurf/mcp_config.json`, and the same entry works (Windsurf also accepts `"serverUrl"` in place of `"url"`).
+
 ### Zed
 
-Open **Settings → AI → MCP Servers → Add Remote Server**, or add this to your settings (`~/.config/zed/settings.json`):
+Open **Settings → AI → MCP Servers → Add Server → Add Remote Server**, or add this to your settings (`~/.config/zed/settings.json`):
 
 ```json
 {
   "context_servers": {
     "wealthnow": { "url": "https://mcp.wealthnow.io/mcp" }
+  }
+}
+```
+
+Zed opens the Wealthnow sign-in the first time it connects.
+
+### Kiro
+
+**[Add Wealthnow to Kiro](https://kiro.dev/launch/mcp/add?name=wealthnow&config=%7B%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%5D%7D)**
+
+Kiro asks you to confirm, then adds the server to your user config. Or open **Kiro: Open user MCP config (JSON)** from the command palette and add:
+
+```json
+{
+  "mcpServers": {
+    "wealthnow": { "url": "https://mcp.wealthnow.io/mcp", "disabled": false, "autoApprove": [] }
   }
 }
 ```
@@ -152,7 +162,7 @@ Run `cline mcp add wealthnow https://mcp.wealthnow.io/mcp --transport http`, or 
 
 ### Goose
 
-Open this link to install it in Goose Desktop:
+Open this link to install it in Goose Desktop (GitHub does not make app links clickable, so paste it into your browser's address bar):
 
 ```text
 goose://extension?url=https%3A%2F%2Fmcp.wealthnow.io%2Fmcp&type=streamable_http&id=wealthnow&name=Wealthnow&description=Wealthnow%20market%20data
@@ -170,7 +180,36 @@ extensions:
     timeout: 300
 ```
 
+### LM Studio
+
+LM Studio 0.3.17 or later. Paste this link into your browser's address bar to open LM Studio with the server filled in:
+
+```text
+lmstudio://add_mcp?name=wealthnow&config=eyJ1cmwiOiJodHRwczovL21jcC53ZWFsdGhub3cuaW8vbWNwIn0%3D
+```
+
+Or open the **Program** tab in the right sidebar, click **Install → Edit mcp.json**, and add the entry below. LM Studio's documentation shows remote servers with a header rather than a browser sign-in, so if it does not open the Wealthnow sign-in, use the API key form:
+
+```json
+{
+  "mcpServers": {
+    "wealthnow": {
+      "url": "https://mcp.wealthnow.io/mcp",
+      "headers": { "X-API-Key": "YOUR_WEALTHNOW_API_KEY" }
+    }
+  }
+}
+```
+
 ### Gemini CLI
+
+Install Wealthnow as a Gemini CLI extension from this repository:
+
+```bash
+gemini extensions install https://github.com/Hlobo-dev/wealthnow-mcp
+```
+
+Or add just the server:
 
 ```bash
 gemini mcp add --scope user --transport http wealthnow https://mcp.wealthnow.io/mcp
@@ -184,6 +223,15 @@ Then run `/mcp auth wealthnow` inside Gemini CLI to sign in. `--scope user` save
 codex mcp add wealthnow --url https://mcp.wealthnow.io/mcp
 codex mcp login wealthnow
 ```
+
+Or add this to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.wealthnow]
+url = "https://mcp.wealthnow.io/mcp"
+```
+
+The Codex CLI, the Codex IDE extension and the ChatGPT desktop app share this configuration, so adding it once makes Wealthnow available in all three. In the IDE extension or desktop app, click **Authenticate** next to **wealthnow** to sign in.
 
 ### Other MCP apps
 
@@ -252,6 +300,35 @@ If your app only runs local servers, bridge to the remote one with [`mcp-remote`
   }
 }
 ```
+
+---
+
+## Tools
+
+- **40 default tools on every plan.** Your agent's tool list holds 40 tools, including `account_status`, `search_tools` and `call_tool`; the list is the same size on Free and on paid plans.
+- **The full catalog** is one call away: `search_tools` finds any tool by topic, and `call_tool` runs one that is not in the list. Your agent can call any tool your plan includes, listed or not.
+- **Every tool, with its schema,** is in the [server card](https://mcp.wealthnow.io/.well-known/mcp/server-card.json). To list them all in your app, connect to `https://mcp.wealthnow.io/mcp?catalog=full`.
+
+Market data tools are read-only; nothing places orders or moves money.
+
+## What your agent can reach
+
+- **Prices and fundamentals:** live prices where licensed (each labeled with its age), historical prices, income statement, balance sheet, cash flow, metrics, screener and peers, with point-in-time vintages and as-reported XBRL so backtests do not see the future.
+- **SEC filings:** 10-K, 10-Q, 8-K and structured extracts.
+- **Insider, institutional and congressional flows:** Form 4, Rule 10b5-1 plans, Form 144 notices, 13F holdings with quarter-over-quarter changes, and congressional trades.
+- **Options:** options flow and gamma exposure, and the full chain with greeks, implied vol and open interest, replayable as it stood on any captured day.
+- **Credit:** FINRA TRACE bond prints, single-name CDS, credit-rating actions and syndicated loans, keyed off the equity ticker.
+- **Macro:** rates, FX, commodities and economic series.
+- **Private markets:** companies, funding rounds, investors and funds, with syndicates and comparables.
+- **And more:** news and sentiment, earnings-call transcripts, short interest, alternative data, crypto, and a ticker, CUSIP, ISIN and CIK crosswalk.
+
+Try asking your agent:
+- "Using Wealthnow, is the bond market more worried about Boeing than the stock market is?"
+- "Using Wealthnow, which members of Congress traded NVDA this year, and what did insiders do?"
+- "Using Wealthnow, what did NVDA's options chain look like the day before its last earnings?"
+
+The Free plan covers prices, fundamentals and SEC filings. Credit, private markets and options history are on paid plans. Failed calls are never charged. [Pricing](https://app.wealthnow.io/docs/pricing-and-credits) · [Get a free account](https://wealthnow.io/register?next=api&utm_source=github&utm_medium=readme&utm_campaign=api_launch_202610)
+
 
 ---
 
