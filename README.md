@@ -2,7 +2,7 @@
 
 # Wealthnow MCP server
 
-**Market data MCP for AI agents: prices, fundamentals, SEC filings, insider, 13F and congress trades, options flow, credit, macro, private markets.**
+**351 read-only tools over one of the deepest institutional financial datasets available to AI agents: US stocks since 1926, over 1 billion implied-volatility surface points since 1996, 21.8M CDS observations and a 10.6M-company private-markets graph. The institutional data desk, inside your AI agent.**
 
 [![MCP Registry](https://img.shields.io/badge/MCP_Registry-io.wealthnow%2Fmcp-0b0b14?style=flat-square)](https://registry.modelcontextprotocol.io/v0.1/servers/io.wealthnow%2Fmcp/versions/latest)
 [![Add to Claude](https://img.shields.io/badge/Claude-Add_Wealthnow-D97757?style=flat-square&logo=claude&logoColor=white)](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Wealthnow&connectorUrl=https%3A%2F%2Fmcp.wealthnow.io%2Fmcp)
@@ -10,6 +10,8 @@
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Wealthnow-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D)
 [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Wealthnow-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=wealthnow&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%7D&quality=insiders)
 [![Add to Kiro](https://img.shields.io/badge/Kiro-Add_Wealthnow-7B42F6?style=flat-square)](https://kiro.dev/launch/mcp/add?name=wealthnow&config=%7B%22url%22%3A%22https%3A%2F%2Fmcp.wealthnow.io%2Fmcp%22%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%5D%7D)
+
+Data that usually takes a terminal contract and a stack of vendor subscriptions arrives through one connection, with OAuth sign-in in Claude, ChatGPT, Cursor, VS Code and Codex. Every answer is dated and sourced, and says when a dataset lags.
 
 Wealthnow is a hosted [Model Context Protocol](https://modelcontextprotocol.io) server. Add one URL to your AI app, sign in to Wealthnow, and your agent can call financial data tools directly. Nothing to install or run.
 
@@ -311,23 +313,93 @@ If your app only runs local servers, bridge to the remote one with [`mcp-remote`
 
 Market data tools are read-only; nothing places orders or moves money.
 
-## What your agent can reach
+## What you get
 
-- **Prices and fundamentals:** live prices where licensed (each labeled with its age), historical prices, income statement, balance sheet, cash flow, metrics, screener and peers, with point-in-time vintages and as-reported XBRL so backtests do not see the future.
-- **SEC filings:** 10-K, 10-Q, 8-K and structured extracts.
-- **Insider, institutional and congressional flows:** Form 4, Rule 10b5-1 plans, Form 144 notices, 13F holdings with quarter-over-quarter changes, and congressional trades.
-- **Options:** options flow and gamma exposure, and the full chain with greeks, implied vol and open interest, replayable as it stood on any captured day.
-- **Credit:** FINRA TRACE bond prints, single-name CDS, credit-rating actions and syndicated loans, keyed off the equity ticker.
-- **Macro:** rates, FX, commodities and economic series.
-- **Private markets:** companies, funding rounds, investors and funds, with syndicates and comparables.
-- **And more:** news and sentiment, earnings-call transcripts, short interest, alternative data, crypto, and a ticker, CUSIP, ISIN and CIK crosswalk.
+| Depth at a glance | |
+|---|---|
+| US equities | Daily and monthly stock history since 1926, delistings included; daily bars for about 12,500 tickers since 2003 |
+| Options | Over 1 billion implied-vol surface points since 1996; option volume and open interest since 2000 |
+| Credit | 21.8M daily CDS observations since 2005 (5,517 reference entities); TRACE bond trades since 2002; 15.8M rating actions |
+| Fundamentals | 10.2M point-in-time statement versions since 1986; quarterly financials since 1961; annual since 1950 |
+| Estimates | 35M analyst-level estimates since 1980; daily consensus since 1978; EPS surprises since 1965 |
+| Ownership | 124M 13F holding records since 1980; 460M mutual fund holding records since 2002; 32M insider records since 1983 |
+| Events and text | 41.9M corporate events since 1990; 1.75M transcripts across 21,628 companies; 283M scored news events since 2000 |
+| Private markets | 355M records: 10.6M companies, 3M deals, 4.9M people, 645k investors and funds, 22M news items |
+| Factors | About 460 firm characteristics back to 1926; factor returns since 1926 |
+| Macro | 68 U.S. series as first released; S&P 500 CAPE since 1871 |
+
+### Equities and prices
+- **US stock history since 1926:** daily and monthly returns, prices, shares outstanding, distributions and delistings, so studies are survivorship-bias-free.
+- **Daily bars for about 12,500 US tickers since 2003,** with total returns and the full dividend and split history.
+- **325M+ captured intraday minute bars** with extended hours, plus 60-second microstructure windows (VWAP, block trades, buy/sell imbalance).
+- **A security master** joining ticker, CUSIP, ISIN, SEDOL and CIK with dated identifier history.
+
+### Credit and fixed income
+- **21.8M daily CDS observations since 2005:** 5Y single-name par spreads and implied default probabilities across 5,517 reference entities, through end-2025.
+- **FINRA TRACE corporate bond trades since 2002:** price, yield, volume and side, matched from the equity ticker.
+- **Credit index composites** for North America, Europe and Asia.
+- **15.8M credit rating actions,** with history for some issuers back to the 1920s.
+- **396k syndicated loan facilities since 1981,** with pricing, 2.1M lender shares and 68k financial covenants.
+
+### Options and volatility
+- **Over 1 billion implied-vol surface points since 1996:** standardized surfaces across maturities and deltas for skew and term-structure research.
+- **Option volume and open interest since 2000,** and 92.6M option-implied borrow rates since 2010.
+- **18M dealer greek-exposure records:** gamma in aggregate, by strike and over time, plus market, sector and ETF options tide.
+- **Live option chains** with full greeks, IV and OI, **replayable chains** on 5,000+ underlyings, unusual flow, IV rank and VIX since 1990.
+
+### Fundamentals without look-ahead
+- **10.2M point-in-time statement versions since 1986:** each quarter as first reported, as it stood on any date, with every restatement traced line by line.
+- **Quarterly financials since 1961 and annual since 1950,** segment data since 1976 and principal customers.
+- **About 75 ratios per stock per month since 1970,** plus 100+ current metrics and a multi-filter screener.
+- **As-filed XBRL history** and filings read live from SEC EDGAR, with structured extracts.
+
+### Estimates, events and text
+- **35M analyst-level estimates since 1980,** broker by broker, plus consensus since 1976, daily consensus since 1978 and EPS surprises since 1965.
+- **7.5M price targets, 3.3M recommendations since 1992 and 2M management guidance records,** compared with consensus at the time.
+- **Crowd-sourced estimates since 2010** alongside the street.
+- **41.9M corporate events since 1990:** M&A, guidance changes, buybacks, executive changes, activism, offerings, index changes and 100+ more types.
+- **1.75M transcripts of 530k events across 21,628 companies since 2002,** with full text and 25M speaker turns from 2020.
+- **283M scored news events since 2000,** aggregated to daily company sentiment, plus a live newswire.
+
+### Ownership, insiders and the short side
+- **124M 13F holding records since 1980,** every holder quarter over quarter.
+- **460M mutual fund holding records since 2002** and ETF holdings with inverse lookup.
+- **32M insider transaction records since 1983,** split into 10b5-1 plan and discretionary trades, with Form 144 intent-to-sell notices.
+- **61M daily securities-lending records since 2002,** short interest since 2006, 52M short-volume records since 2009 and dark-pool prints.
+- **Congressional trades,** lobbying filings and federal contract awards.
+
+### Governance, ESG and alternative data
+- **1.2M board profiles, 871k directors and 5M director interlock links.**
+- **Executive pay since 1992;** audit fees, restatements and auditor changes since 2000; forensic accounting flags.
+- **ESG ratings since 2007** with pillar, theme and key-issue scores.
+- **6M+ supply-chain relationships and 40M geographic revenue records since 2003.**
+- **WARN layoff notices since 1989** and monthly headcount, hiring and attrition.
+
+### Private markets
+- **355M records covering 10.6M companies, 3M deals and funding rounds, 4.9M people, 645k investors and funds and 100k+ limited partners.**
+- **Fund performance** (IRR, DPI, TVPI, RVPI), round syndicates, comparables, 22M news items and model valuation marks that refuse to guess when coverage is thin.
+
+### Quant research
+- **About 460 firm characteristics back to 1926,** including the 102 published anomaly characteristics, factor returns since 1926 and rolling factor betas since 1966.
+- **47 research datasets** readable directly, and model-ready feature panels with measured coverage and freshness.
+- **Deflated Sharpe Ratio and CPCV checks,** TWAP and VWAP scenarios, uncertainty-discounted Kelly sizing and a DCF scenario simulator.
+
+### Macro, futures, FX and crypto
+- **68 U.S. economic series as first released,** S&P 500 CAPE since 1871 and leading indicators for 22 economies.
+- **Rates:** the Treasury curve across all 11 tenors, auction results, Fed holdings and primary-dealer positioning since 2013.
+- **Futures:** 28 CME, CBOT, NYMEX and COMEX products, term structures and CFTC Commitments of Traders across 892 contracts since 2006. Ship traffic through 24 maritime chokepoints since 2019.
+- **About 17,000 crypto coins** with cross-venue funding, open interest, basis, BTC and ETH vol surfaces, DEX pools and on-chain flows. Live FX rates.
+
+### Plans and sign-in
+- **Free plan:** 1,000 credits a month, 30 requests a minute, no card. It covers prices, fundamentals and SEC filings and stops at its grant, so it never bills you. Deep history, credit, private markets, options and transcripts are on paid plans ([pricing](https://app.wealthnow.io/docs/pricing-and-credits)).
+- **Failed calls are free,** and `account_status` and `search_tools` never spend credits.
+- **Finding tools:** `search_tools` finds any of the 351 tools by topic, and `call_tool` runs any tool your plan includes.
+- **[Get a free account](https://wealthnow.io/register?next=api&utm_source=github&utm_medium=readme&utm_campaign=api_launch_202610).**
 
 Try asking your agent:
 - "Using Wealthnow, is the bond market more worried about Boeing than the stock market is?"
 - "Using Wealthnow, which members of Congress traded NVDA this year, and what did insiders do?"
 - "Using Wealthnow, what did NVDA's options chain look like the day before its last earnings?"
-
-The Free plan covers prices, fundamentals and SEC filings. Credit, private markets and options history are on paid plans. Failed calls are never charged. [Pricing](https://app.wealthnow.io/docs/pricing-and-credits) · [Get a free account](https://wealthnow.io/register?next=api&utm_source=github&utm_medium=readme&utm_campaign=api_launch_202610)
 
 
 ---
